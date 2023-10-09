@@ -1,0 +1,2693 @@
+
+
+APPLICATION OF RADIO FREQUENCY IDENTIFICATION (RFID) AND BIOMETRICS IN SCHOOL SECURITY SYSTEM
+
+
+
+
+
+BY
+
+
+ODO, JOSEPH IKECHUKWU
+2019222003
+
+
+
+
+DEPARTMENT OF COMPUTER SCIENCE
+FACULTY OF PHYSICAL SCIENCES
+CHUKWUEMEKA ODUMEGWU OJUKWU UNIVERSITY
+
+
+
+
+
+SEPTEMBER, 2022
+TITLE PAGE
+
+
+
+APPLICATION OF RADIO FREQUENCY IDENTIFICATION (RFID) AND BIOMETRICS IN SCHOOL SECURITY SYSTEM (SSS)
+
+
+BY
+
+ODO, JOSEPH IKECHUKWU
+2019222003
+
+
+
+A DISSERTATION PRESENTED TO THE SCHOOL OF POSTGRADUATE STUDIES, CHUKWUEMEKA ODUMEGWU OJUKWU UNIVERSITY, ULI
+
+IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE AWARD OF THE DEGREE OF MASTER OF SCIENCE (M.Sc.) IN COMPUTER SCIENCE
+
+
+
+SUPERVISOR: PROF. O.C. OKEKE
+
+
+
+
+SEPTEMBER, 2022
+
+
+
+CERTIFICATION
+I hereby declare that this dissertation on “Application of Radio Frequency Identification and Biometrics in School Security System” is the product of my own research efforts, undertaken and the supervision of Prof. Okeke Ogochukwu. The work embodied in this thesis is original and has not been submitted in part or whole for any other diploma or degree of this or any other university. All sources have been duly distinguished and appropriately acknowledged. 
+
+
+
+
+
+
+
+_______________________________
+ODO, JOSEPH IKECHUKWU
+2019222003
+
+
+APPROVAL PAGE
+This is to certify that ODO, Joseph Ikechukwu, a postgraduate student in the Department of Computer Science with Registration Number 2019222003 has satisfactorily completed the requirements for research work and have been approved for the award of the degree of Master of Science in Computer Science. 
+
+
+
+____________________________			_________________________
+	Prof. O.C. Okeke						Date
+	Project Supervisor
+
+
+____________________________			_________________________
+	Prof. O.C. Okeke						Date
+Head, Department of Computer Science
+
+
+____________________________			_________________________
+	Prof. K.K Nwozor						Date
+Dean, Faculty of Physical Sciences
+
+
+_____________________________		_________________________
+	Prof. M.N Chendo						Date
+Dean, School of Post Graduate Studies
+
+
+____________________________			_________________________
+	External Examiner						Date
+	
+
+DEDICATION
+This work is dedicated to God Almighty
+
+
+ACKNOWLEDGEMENTS
+My special thanks to my supervisor Prof. O.C. Okeke for her time, understanding and guidance through this work. This work gave me the opportunity to understand through her that biological mother is not the only mother that I have. She turned to be my mother, friend, supporter and motivator on the course of this work. I also want to thank in a special way, my parents, Late Mr. Benedict Odo and Mrs Bridget Odo, my elder brothers Mr. Mark Odo, Mr. Elijah Odo, Mr. Chukwudi Odo, my sister Nnedinso Odo and friends for their support and guidance. Also my colleagues Nwakeze Miracle, Ibeh Sylvarine, Happiness Akabuike, Onuigbo Chidi Chikodili, and the host of others.
+
+I will not fail to mention the efforts of the Head of Department of Computer Science Prof. O.C. Okeke, Departmental PG Coordinator Prof. Ike Mgbafuruike, and Mr. Peter Ezeanyeji, Mrs. Nwankwo Chekwube, Mrs Chinwe, Mr T. Umeasiegbu and other lecturers and entire members of the department for their immense positive impact throughout the period of my course work and research.
+
+This acknowledgement will not be complete without giving special thanks to my good friend and mentor Prof. E.K. Anakwuba, Prof. P.C. Okoye, Dr. Henry C. Nwkokoye, Dr. E. Etodike, Rev. Sr. Dr. Ogochukwu Okafor, Rev. Fr. Dr. Augustine Uzodigwe, Miss Precious Okafor, Rev. Fr. Donatus Onyeanusi, Rev. Sr. Benedine Onwudiwe and my uncle Mr. Mark Odo (Snr) for their prayers, moral and financial support.
+
+Above all, I appreciate God Almighty for His infinite kindness, guidance, provision and protection through the period of this research.  
+
+ABSTRACT
+In the light of the recent child kidnapping, targeting the girl child has been not only worrisome, but enormously lean the country toward a lawless nation. Amazingly, this menace has been fueled by the seeming vulnerability of the pupils in question, and the fact that parents cannot always accompany students to the school during school hours or to the house while returning from the school and also do not know the exact time of their entering or exiting the school premises. Therefore, this study is aimed at development of a school security system using Radio Frequency Identification (RFID) and biometric features (Face Recognition) in order to monitor in real time both entering and exit of school premises of the students. The objective of this study was to design a school security system application that sends automatic SMS to parents on their child’s arrival and leaving the school premises and record student attendance for the school. The methodology adopted was Analysis Design Development Implementation and Evaluation (ADDIE) methodology. The System was implemented using Microsoft Visual Studio 2015 and Arduino IDE as Development Environment. The programming language used were C#.NET (to program the graphic user interface (GUI)), C programming language for the micro controller programming, and MySql for the database design. Finally, the School Security System (SSS) application helps in management of the student’s security, student attendance, complexities in monitoring the entrance and exit of students and reduce anxiety among parents/guardians.
+
+TABLE OF CONTENTS
+Title Page										i
+Certification										ii
+Dedication										iii
+Acknowledgement									iv
+Abstract										v
+Table of Contents									vi
+List of Tables										xii
+List of Figures									xiv
+CHAPTER ONE: INTRODUCTION
+1.1	Background to the Study							1
+1.2	Statement of the Problem							2
+1.3	Aim and Objectives of the Study						2
+1.4	Significance of the Study							3
+1.5	Scope of the Study								3
+1.6	Limitations of the Study							3
+1.7	Definition of Terms								4
+CHAPTER TWO: LITERATURE REVIEW
+2.1	Conceptual Framework							5
+2.1.1	Brief History of RFID							7
+2.1.2	Key applied areas of RFID							9
+2.2	Biometrics									16
+2.2.1	Application Areas of Biometrics						16
+2.3	Empirical Framework							17
+2.3.1	Empirical Study on RFID Usage in Schools				17
+2.2.2	Summary of Literature Review						26
+2.3	Knowledge Gap								28
+CHAPTER THREE: SYSTEM ANALYSIS AND METHODOLOGY
+3.1	System Analysis								29
+3.1.1	Analysis of the Existing System						29
+3.1.2	Weakness of the Existing System						30
+3.2	Analysis of the Proposed System						30
+3.2.1	Advantages of the Proposed System					31
+3.2.2	High Level Model of the Proposed System				32
+3.3	Methodology Adopted							32
+
+CHAPTER FOUR: SYSTEM DESIGN AND IMPLEMENTATION	
+4.1	Objectives of the New Solution						36
+4.2	Decomposition and Cohesion of High-Level Model			36
+4.2.1	Control Centre/Main Menu							37
+4.3	Specifications								37
+4.3.1	Database Development Tool						37
+4.3.2	Database Design and Structure						38
+4.3.3	Program Module Specification						40
+4.3.4	Input/Output Specification							40
+4.3.4.1	Input Format									40
+4.3.4.2	 Output Format								42
+4.3.5	Overall Object Diagrams of the New Sytem				43
+4.3.5.1	System Activity Diagram							43
+4.3.5.2 Class Diagram of the Entire System					44
+4.3.5.3	Sequence Diagram of the System						44
+4.3.5.4	Use Case Diagram of the Entire System					45
+4.3.5.5	Component Diagram of the School Security System			46
+4.4	System Flowchat								47
+4.5	Data Dictionary								48
+4.6	New System Requirements							49
+4.6.1	Hardware Requirements							49
+4.6.2	Software Requirements							49
+4.7	Programme Development							49
+4.7.1	Choice of Programming Language						49
+4.8	Language Justification							50
+4.9	Programme Testing								50
+4.9.1	Changeover Procedure							51
+4.9.2	Recommended Procedure							51
+4.10	System Implementation							51
+4.11	Training									51
+4.12	Documentation								52
+4.13	Maintenance									52
+
+CHAPTER FIVE: SUMMARY, CONCLUSION AND RECOMMENDATION
+5.1	Summary									53
+5.2	Conclusion									53
+5.3	Recommendation 								54
+5.3.1	Application Areas								54
+5.3.2	Suggestion for Further Research						54
+5.4	Contribution to Knowledge							54
+
+REFERENCES									55
+Appendix A (Source Codes)							61
+Appendix B (Sample Outputs)							91
+
+
+LIST OF FIGURES
+2.1	RFID Scanner and Tag							5
+2.2	RFID Working Principle							6
+2.3	RFID Concept								18
+2.4	Software Component of RFID System					19
+2.5	Ways to Track Children							20
+2.6	The Structure of the SMSRSN						21
+2.7	Block Diagram of the System						23
+2.8	Security System								24
+2.9	Block diagram of the RFID based security system			24
+2.10	System Architecture								25
+2.11	Block diagram of the system						26
+3.1	Cotext Diagram of SSS							31
+3.2	High Level Model of the proposed system and interacting modules	32
+3.3	Development process of the SSS application using ADDIE model	33
+4.1	Control Center/Main Menu							37
+4.2	Login Format									41
+4.3	Student registration form							41
+4.4	User Record									42
+4.5	Student record								42
+4.6	Student Attendance Record							43
+4.7	Activity Diagram								43
+4.8	Class diagram								44
+4.9	Sequence diagram of the entire system					45
+4.10	Use case diagram of the entire system					45
+4.11	Component diagram of the entire system					46
+4.12	System flowchart								47
+
+
+
+LIST OF TABLES
+2.1	Brief history of RFID technology						9
+2.2	Summary of the RFID reviewed studies					27
+4.1	User table									38
+4.2	Attendance table								38
+4.3	rfid_attendance_table							39
+4.4	Login table									39
+
+
+
+CHAPTER ONE
+INTRODUCTION
+1.1.1 Background to the Study
+Security is the biggest challenge to the concurrent world. Therefore, to achieve the milestone of safety and security of school children led to the design and implementation of a security system that can be deployed in school to monitor the attendance of students using an RFID reader which is attached with Arduino and face recognition. This work provides knowledge on radio frequency identification (RFID) technology, where RFID reads the unique code of RFID tags and transmits it to the Arduino. Then with the use of that code Arduino microcontroller will trigger a camera that detects the student's face and then marks him or her presence.
+Recently, countries and international organizations are been progressively challenged by the terror, kidnap and crime directed at children (United Nations Office on Drugs and Crime (UNODC), 2021). It's noteworthy that “Violence administer to under-developed comprises all forms of violence against people below 18 times old, whether executed by guardians, parents, peers, nonnatives or romantic mates”(WHO, 2020).“It's estimated that over 1 billion children between 2- 17 times encyclopedically have endured emotional, physical, or sexual violence or neglect in the former times”.Violence perpetrated on children is of six major kinds and they include; “maltreatment (including violent punishment), bullying (including cyber-bullying), youth violence, intimate partner violence, sexual violence, emotional or psychological violence” (WHO, 2020). 
+
+These children after experiencing violence or crime meted on them grow into adulthood with scars on their health and general wellbeing. “Childhood exposure to abuse, violence, and crime can lead to serious damage for the health and wellbeing of the victim, through his/her life” (Fang, et al, 2012; Shaharban, 2019). Some specific effects of child violence are death, severe injuries, impaired brain function and nervous system development, negative coping and health risk behaviors, non-communicable diseases, and impacts on opportunities and future generations. 
+
+1
+As it relates to our study, emphasis is placed on violence meted out to school children i.e. abductions or kidnapping of children during school hours or while they are in their boarding houses. 
+The parents and guardians of the kidnapped children wallow in sorrow for the unimaginable atrocities meted out to most especially the females. The truth is that some of these girls may never return.  The urgency of preventing this untold crime was captured in the statement by Miwa Kato, in the 14th UN crime congress held at Abuja, Nigeria; which goes thus: “…the price we cannot pay is by forgetting these children. We need to act as soon as possible because their lives and futures are at stake” (UNODC, 2021). 
+
+In line with acting now, our position is to apply technology such as Radio Frequency Identification (RFID) to connect all stakeholders in a loop of communication in such a manner that parents and teachers know the location and ways of students. This may enhance faster security response and measures for the students in their respective schools, thereby saving parents/guardians avoidable heartaches and headaches. 
+
+1.1.2 Statement of the Problems
+The identified problems in which information and communication technology (ICT) can help salvage include the following: 
+i. Lack of communication to parents/guardians regarding the time of entering and exit of students to school premises.
+ii. Absence of requisite technology to manage complexities encountered in students’ attendance recording such as impersonation, and taking permission to leave the school premises before closing time.
+iii. Abuse of the RFID tag and illegal activities among school children makes them violate school norms and expose them to kidnappers.
+
+1.2 Aim and Objectives of the Study
+This study aims to apply Radio Frequency Identification (RFID) and Biometric Features (Face recognition) to School Security systems (SSS) to monitor in real-time both entering and exiting times of the school students. The specific objectives of the study include: 
+1. To design a School Security System (SSS) application that will enhance communication to parents on the arrival of their children at school and when they are leaving the school premises. 
+2. To implement the School Security System (SSS) application using RFID as a requisite technology. 
+3. To include within the School Security System (SSS) some biometric features to reduce the abuse of the RFID tag and prevent the spread of the COVID-19 virus. 
+4. To propose the use of a School Security System (SSS) in Nigerian schools to reduce crime against children, and to reduce panic among parents. 
+
+1.3 Significance of the Study
+The proposed system has three major benefits and they include security of students, reduction of crime and other illegal activities as well as aid in the elimination of worries on the part of the parents/as to the location of their children.  
+1. SSS helps reduces the time taken and difficulties associated with monitoring attendance among school children. With this system, illegal activities such as loitering, and leaving the school premises without authorization, which do not conform to school norms and regulations are curbed. This is a result of the fact that their location is known by all stakeholders involved. 
+2. Biometric features provide security to the system developed: The facial biometric help to reduce the abuse of the RFID card, and impersonation and avoid physical contact in obedience to COVID-19 rules.  
+3. The message that the system sends to the parents during the entrance and exit of their children from the school helps to keep the parents in the know of their children's way about and eliminate worries. This will also help parents/guidance to raise alarm and take prompt actions where security issue is suspected.   
+
+1.5 Scope of the Study
+The system uses SMS, RFID, and facial biometrics in taking attendance and monitoring the entrance and exits time of school children. This study is limited to primary and secondary schools in Nigeria.
+
+
+
+1.6 Limitations of the Study
+The study has some constraints which include 
+1. Lack of funds and available literature in the design and development knowledge of the proposed application.
+2. The design and development of the system was a herculean task because many technologies were involved. It took me a lot of time to gain the requisite proficiency in these areas before designing the system.
+3. I had difficulty accessing records in my quest to review the existing attendance monitoring systems and security measures adopted by some schools I visited during the analysis stage.
+
+1.7 	Definition of Terms
+Arduino Board: The Arduino Uno is an open-source microcontroller board grounded on the Microchip ATmega328P microcontroller and developed by Arduino. cc. The board is equipped with sets of digital and analog input/ affair legs that may be connived with colorful expansion boards and other circuits.
+Biometrics: Biometrics is biological measurements or physical characteristics that can be used to identify individuals. Eg. fingerprint mapping, facial recognition, and retina scans are all forms of biometric technology.
+DBMS: Database Management Systems( DBMS) are software systems used to store, recoup, and run queries on data. It serves as an interface between an end-user and a database, allowing users to create, read, update, and delete data in the database.
+RFID: is an acronym for Radio Frequency Identification, and it is a technology that makes use of electromagnetic fields to identify microchips attached to an object. 
+RFID Tag: The tag has a small microchip that is connected to an antenna. The microchip can keep a maximum of 2 KB of data, this data contains all information about the product and other related data.
+Passive RFID: A passive RFID tag is a type of RFID tag that does not have a battery or any kind of power source by itself. It draws the required energy from the RFID reader.
+Active RFID: Active RFID (radio frequency identification) tags are continuously operating, battery-powered sensors that gather and transmit data to a reading device.
+SMS: is an acronym for (Short Message Service). It is a text messaging service component of telephone, Internet, and mobile device systems that uses standardized communication protocols that allow mobile devices to communicate with each other.
+
+
+CHAPTER TWO
+LITERATURE REVIEW
+2.0	Theoretical Framework
+2.1	Conceptual Framework
+Radio Frequency Identification (RFID) is a modern technology that integrates the use of electrostatic or electromagnetic coupling in the radio frequency (RF) part of the electromagnetic spectrum to uniquely identify an object, animal, or person (Mahyidin, 2018). Mahyidin 2018 opines, “an RFID system consists of three components: an antenna and transceiver (often combined into one reader) and a transponder (the tag)”. The antenna makes use of radio frequency waves to send a signal that turns on the transponder. When activated, the tag sends data back to the antenna. RFID technology differs from bar codes. The reader can read the tag using radio frequency (RF), meaning that it can be read from a distance, right through your backpack, wallet, purse, or clothes. Besides the RFID tag consist of a unique ID for each tag. The invention used in RFID has been in existence since the early 20th century. Figure 2.1 illustrates the RFID scanner (right) and tag (left). 
+
+Figure 2.1 Illustrates the RFID tag (left) and scanner right [2]
+
+What is RFID
+The term RFID (radio frequency identification) is one type of electronic device that includes a small antenna and a chip. This device is used to transmit information like persons, animals, books, or any stuff between a reader and an RFID tag using radiofrequency electromagnetic fields. It is capable of carrying 2k bytes of data. There are multiple types of RFID systems available today, which consist of an antenna, a transponder, and a transceiver. Some types of tags can be placed far from the reader and some close to the RFID reader. The operating frequency ranges of these devices mainly include low, mid, and high ranges. The low-frequency range is from 30kHz to 500kHz, the mid-frequency range is from 900kHz to 1500kHz and the high-frequency range is 2.4kHz to 2.5kHz(Mahyidin, 2018).
+RFID (radio frequency identification) is designed to serve the purpose of a barcode scanner or a magnetic strip on the back of the ATM card. It creates a unique identifier for that object and just like a bar code or magnetic strip it must be scanned to get the information RFID must be scanned to retrieve the information(Chiagozie and Nwaji, 2021).
+How Does RFID Work
+
+
+
+
+
+
+
+
+Figure 2.2 illustrates how RFID work (Chiagozie and Nwaji, 2021)
+RFID belongs to a group of technologies appertained to as Automatic Identification and Data Capture(AIDC). AIDC is designed to identify objects automatically, collect data about them, and enter those data directly into computer systems with or without mortal intervention. RFID styles use radio waves to complete this task. At a simple position, RFID systems are made of three components, an RFID label or smart tag, an antenna, and an RFID reader. The tag contains an antenna and integrated circuit, which is used to transmit data to the RFID reader (also called an interrogator). The RFID reader also converts the radio waves to a further usable form of data. Information collected from the RFID tag is also transferred through a dispatches interface to a host computer system, where the data can be stored in a database for future use.
+2.1.1 	Brief History of RFID
+The history of RFID was culled from the work of (Mahyidin, 2018). Generally, “the roots of radio frequency identification (RFID) technology can be traced back to World War II. The Americans, Japanese, Germans, and British used radar which had been invented in 1935 by Scottish physicist Sir Robert Alexander Watson-Watt to warn of approaching planes while they were still miles away. The problem was there was no way to identify which planes belonged to the enemy and which were a country’s pilots returning from a mission”. 
+“RFID exploration and discovery began in humorless in the 1970s. RFID is generally used to transmit and admit information without cables. RFID tags and readers use radio waves to communicate through a distance. There are a lot of advantages to the RFID system, including its price, size, memory capacity, and capability. The full memory-based RFID chip with less or no co-processor is affordable, and its footprint is small and is usually applied in car immobilizer applications where the IC has to fit in a tiny glass tube embedded in the key. The fast-processing speed of RFID is also essential.
+“Improvement in radar and RF dispatches systems continued through the 1950s and 1960s. Academics and Scientists residing in Japan, Europe, and United States, conduct research and presented papers explaining how radio frequency (RF) energy could be used to remotely identify objects. Industries began to develop a commercialized anti-theft system that uses radio waves to determine the paid and unpaid items in the store. Nowadays, Electronic article surveillance tags, which are still relevant in packaging, have a 1-bit tag. The bit is either on or off. If a customer pays for an item, the bit is turned off, and a customer can leave the mall. But if the person doesn't pay and tries to leave the store, readers at the door detect the tag and sound an alarm. The First RFID Patents Mario W. Cardullo, on January 23, 1973, claims to have received the first US patented an active RFID tag with rewritable memory.
+“That same year, a California entrepreneur, Charles Walton, received a patent for a passive transponder used to unlock a door without a key. RFID tag with an embedded transponder communicated a signal to a reader close to the door. Once the reader detected a valid identity number stored within the RFID tag, the reader unlocked the door. Walton licensed the technology to Schlage Lock of San Francisco, a clockmaker, and also different companies. In the long run, companies started to develop a low-frequency (125 kHz) system, with smaller transponders.
+ A transponder enclosed in glass could be fixed under the cows’ skin. This system is still in use on cows around the globe today. Low-frequency transponders were also encapsulated in cards and were used to control access to houses.
+“Over time, industries capitalized 125 kHz systems and also moved up the radio diapason to high frequency (13.56 MHz), which was limited and were not used in the greatest possible degree of the world. High frequency offered lesser range and brisk data transfer rates. Companies, particularly those in Europe, began using it to track applicable holders and other means. moment,13.56 MHz RFID systems are used for access control, payment systems(Mobile Speedpass), and contactless smart cards. They are also used as an anti-theft device in buses. RFID reader in the steering column reads the passive RFID label in the plastic casing around the key. However, the car will not start, if it does not get the ID number it's programmed to look for.
+“IBM engineers developed and obtained a patent for an ultra-high frequency (UHF) RFID system in the early 1990s. UHF offered a high longer read range (up to 20 feet under good conditions) and faster data transfer. Early pilots with Wal-Mart technology which IBM did were never commercialized. In the mid-1990s when it ran into fiscal trouble, IBM vented its patents to Intermec, a bar code systems provider. Intermec RFID systems have been installed in multitudinous different operations, from storehouse tracking to husbandry. But the technology was highly unaffordable at the time due to the low volume of deals and the lack of open, transnational norms”.
+Another brief account of RFID history was presented by Kwangho&Sabinne (2015) and it goes thus; “RFID technology has emerged as Frederick Hertz found the existence of radio frequency during his experiment in 1886 (Wyld, 2005) and developed for defense during the Second World War4. During the 1970s and 1980s, the RFID system attracted plenty of scholars and innovators, so efforts to register patents progressed. Charles Walton, a researcher had patented to use of RFID. In the 1980s, many companies in European and United States realized the significance of advancing RFID technology development and started to manufacture RFID tags. Afterward, researchers at MIT University opened a center for Auto-ID to promote the use and implementation of RFID technology. But most scholars report that the first commercialization of RFID technology was done by Walmart as they launched RFID based material identifying system in 2005. Wal-Mart is now tracking merchandise including food, apparel, and electronic items with RFID technology in their supply chain. RFID technology is a brand modern policy tool that ensures high efficiency, effectiveness, and transparency, not only in government service delivery but also in industrial areas”. Table 2.1 describes a brief history of how RFID technology was developed and diffused.
+DateEvent1886The idea of using Radio Frequency to reflect waves from objects was started from Frederick Hertz’s experiment.1930-1940American navy research laboratories developed a system known as IFF (Identify Friend or Foe).1940–1950The first application of RFID consisted of identifying allied or enemy planes during WW2 through the use of the IFF system.1973Charles Walton, a former IBM researcher registered a patent using RFID technology, a radio-operated door lock.1980–1990Many US and European companies started to manufacture RFID tags.2003The Auto-ID center for MIT became EPC global, an organization whose objective is to promote the use and adoption of RFID technology.2005Wal-Mart launched an RFID pilot.
+Table 2.1: Brief history of RFID technology (Kwangho&Sabinne, 2015)
+
+2.1.2	Key applied areas of RFID
+1.	Environmental applications
+RFID technology can be extensively applied in environmental operations. espousing an RFID system in waste operation is the most prominent way of using RFID to ensure effective, eco-friendly waste operation in many countries worldwide. PAYT (Pay As- You Throw) program done by European Union (EU) is the initiator in this field. PAYT is an RFID- based waste pricing model that allows each individual or each home to pay for the tag along with the total volume of waste they heave. According to company officers, RFID technology is being used more and more as a way to track containers and confirm service (Megan, 2017). Radio-frequency identification (RFID) technology systems were originally touted as the go-to for pay-as-you-throw waste and recycling collection programs. Asset tags were attached to waste and recycling containers and data was collected when the bins were full, warning carriers to deploy a vehicle to clear the bins. But according to company officers, RFID technology is being used more and more as a way to track containers and attest service. Joshua Connell stated that “RFID is a good inventory tool and can also provide us both service verification and productivity of data”, managing partner of Morton Grove, Ill.- based Lakeshore Recycling Systems. “The consumer will have to drive the use more in commendations to pay-as-you-throw programs.” according to Jim Pickett, vice chairman of sales for Toter LLC, based in Statesville, N.C. He says there has been recent growth in the use of RFID tags to both manage wagons as external assets and track collection services in real-time. Recycling wagons are generally RFID tagged to cover participation situations by route, road, and individual homes. RFID technology allows automated asset tracking (scanning) of real-time service verification from when the cart is delivered to a home and also throughout the complete life of the cart (Megan, 2017).
+2. Transportation
+Under this subsection were presented the results of a systematic review of the role of RFID technologies in transportation projects by Sharma, Mahto, Harper, and Alqattan, (2020). From the research conducted, RFIDs were used to support varying activities and functions scattered through several phases of construction projects and transportation management.
+i.	Tracking labor, materials, equipment, and tools – Material(s), Labour, small tools and equipment tracking is one of the major applications of RFID systems for site construction. Management of components and materials on-site that constitute mainly half of the total cost of projects depends on an individual’s skills. During the construction phase, the needed materials and elements (like prefabricated concrete blocks or steel assemblies) are squirreled on the spot and used when demanded. Significant time, monies, and effort are wasted in counting, documenting, identifying, and locating the required materials and components that are on-site when not adequately managed. These issues are frequently observed in transportation as well as residential, commercial, and industrial construction projects. The majority of these issues can be addressed using wireless technologies such as RFID (FHWA, 2018). RFID systems consisting of tags integrated with GPS locators are available, and these can be deployed to assist project participants in exercising enhanced control on inventory management (Schwartz et al., 2015). Transportation construction projects are labor-intensive and require efficient labor management. Labour is the most unpredictable part of any construction project, therefore, it is challenging to measure labor efficiency and thus manage it (Lindhard et al., 2019). Efforts on technological advancement have helped in developing RFID-tagged personal protection equipment (PPE) that can help to determine labor efficiency and safety by tracking the activity of the workers. Systems have been developed to warn workers nearing hazardous locations in the construction work zone.  Moreover, an RFID system for real-time monitoring of precast construction activities and automatically integrating the data to generate the project production schedule was also developed (Altaf et al., 2018). Furthermore, RFID systems were also used for tracking a company’s construction fleet (EW, 2016).
+ii.	E-ticketing: real-time concrete and hot mix asphalt truck monitoring - Sharma, Mahto, Harper, and Alqattan, (2020) assert that time and quality are vital parameters during hot mix asphalt (HMA) pavement construction, the HMA must be spread out on the ground and compacted within a limited time. Also, it is equally essential to ensure that the material delivered is meeting specifications. To ensure these and record the tonnage of material used, departments of transportation (DOTs) require manual inspection of trucks entering a job site (Sharma, et al., 2020). Qualified DOT inspectors are required to collect a paper ticket from an arriving truck and, after verification, manually enter the required data (EW, 2016). This process is time-consuming, unsafe, and error-prone. All these issues have been successfully addressed by an electronic ticketing process, called e-ticketing (IOWA DOT, 2015). E-ticketing is an RFID-based method of tracking and monitoring pavement material loads by producing digital scale tickets and material haul summaries for transportation roadway projects (IOWA DOT, 2015). E-ticketing technology uses GPS tracking, geo-zoning equipment for the activity area, and periodically time stamping the location of trucks to allow tracking of materials from the plant to final placement. 
+Several state DOTs, including Alabama, Florida, Iowa, Minnesota, North Dakota, and Pennsylvania, are in the process of exploring and testing the effectiveness of using e-ticketing on highway construction projects. Iowa DOT conducted “proof of concept” studies using e-ticketing technology and is considering integrating the technology with weight scales for making the process entirely paperless (IOWA DOT, 2015). Iowa DOT’s e-ticketing was implemented using GPS transponders, which proved that using RFIDs can be used for tracking trucks and investigating vehicle movement. Pennsylvania DOT began a pilot using e-ticketing for HMA and warm mix asphalt (WMA) in 2017 on four roadway paving projects (Weisner et al., 2017). Further piloting was planned in 2018 with PennDOT moving toward an electronic material instrument for the maturity of thruway systems( Weisner et al., 2017).
+iii.	Electronic TOLL COLLECTION - Tolls roads are found in the majority of the US states, and several states that do not have toll roads are considering the option of adopting tolling for roadways. As a result, toll collection is and will remain a significant task for transportation and tolling agencies (Sharma, et al., 2020). Tolls can be collected manually; however, it slows down traffic significantly going against the sole purpose of toll roads aiming to provide congestion-free and safe traffic flow (Sharma, et al., 2020). A survey by the International Bridge, Tunnel, and Turnpike Association (IBTTA) conducted in 2016 wherein 36 tolling agencies participated, found that the tolling trend is moving from manual toll to electronic toll collection (ETC) (National Toll Technology Survey, 2016). The survey results show that in 2010, 29% of the toll revenues were collected manually, but in 2015, manual toll collection was reduced to 18% (National Toll Technology Survey, 2016). This change was possible because of the efficiency and reliance on ETC.
+The ETC system, also known as an automated toll collection system, is an RFID-based technology that enables collecting tolls without manual intervention (Sharma, et al., 2020).  The system requires rising RFID readers at toll booths on highways and attaching tags to vehicle windshields. As the vehicle approaches the range of the reader, the RFID tag transmits a unique identification number that is pre-registered with a payment account thereby enabling automatic payment processing. The readers are attached at the entry and exit of tolled highways which enable the computation of tolls based on usage.
+iv.	Speed monitoring - Speeding is a type of aggressive driving that endangers traveling motorists. As per the National Highway Traffic Safety Administration (NHTSA), in 2016, 27% of all fatalities related to traffic accidents happened due to speeding (NHTSA, 2018). Global data is even more concerning. World Health Organization (WHO), suggested that one out of three traffic deaths globally is caused by over-speeding (WHO, 2017). RFID technology can be used to monitor the speeding of motorists. This can be done by attaching tags to road pavement and deploying RFID readers on traveling vehicles (Jing et al., 2013). The RFID technology detects the speed between the tags using the equation of moving the body to know if the speed is within approved limits. The information is then used with a fuzzy logic controller that controls the throttle and brakes to achieve a targeted cruise speed (Sharma, et al., 2020).
+v.	Smart parking - RFID-based smart parking systems were presented by Abdulkader et al., (2018). These help in detecting and tracking parking in real-time inventory, processing automated use-based payments, ensuring secured transactions, propagating traffic flow, promoting safety, directing users to free spots, and reducing management costs. However, the application of RFID systems for parking could be very challenging because of the extent to which RFID sensors need to be installed for covering the overall area. To address this challenge, a multi-objective integer programming model to optimally install sensors for maximizing sensor coverage and extending a system’s life in a smart parking lot has been developed (Bagula et al., 2015). While RFID- based smart parking systems are anticipated to enhance parking operation, the exactness of RFID’s locational capability could hamper its wide relinquishment. An attempt has been made to ameliorate the accuracy of RFID using real-time kinematic(RTK) GPS which can be veritably useful in achieving the asked position of exactness for rightly relating and distinguishing parking spots (Xing et al., 2014).
+3.	Healthcare and welfare
+The rising implementation of radio-frequency identification (RFID) technology, specifically in the healthcare sector, demonstrates RFID technology as a favorable asset to healthcare organizations (Paaske, et al., 2017). RFID is used in the management of hospital equipment more easily to save costs in public health areas. 
+Globally, the safety of patients is a serious health challenge. Official statistics show that there's an adding number of mistreatments within healthcare industries due to the wrong identification of the patient or the medicine administered to the patient. It is believed that the majority of the medical errors caused by misidentifications are preventable by introducing integrated IT infrastructures (MoutazHaddara et al 2018). 
+The utilization of health information technology to improve patient safety and quality of care has become an area of high priority for the U.S. government and healthcare organizations. The Health Information Technology for Clinical Health (HITECH) Act authorized the relinquishment of new healthcare technologies and propagates the development and use of new health information technology to further explore healthcare in the U.S (Health IT Legislation, 2015.) TheU.S. Department of Health and Human Services and Food and Drug Administration (2016) explosively recommended and encourages the acceptance of health information technology and the development of successful real-time monitoring systems (Paaske, et al., 2017).   
+
+4.	Agriculture and livestock
+Radio Frequency Identification (RFID) is a technology that helps to improve the management of information flow within the supply chain and security in the agri-food sector (Kumar and Srivastava 2018). RFID is already being used for years in animal identification and tracking and the food chain for traceability control. The development of RFID sensor tags has improved monitoring of the cold chain of perishable food products, environmental monitoring, irrigation, specialty crops, and farm machinery (Kumar et al., 2018).
+Quality control for perishable agro-food products can be improved using Radio Frequency Identification (RFID) technology.   Monitoring the Cold Chain for Perishable Foods using RFID, Low temperatures cause freezing damage, while too high a temperature has the potential to increase the rate of enzymatic and/or product spoilage (Badia-Melis et al., 2018). According to Kumari et al. (2015) and Badia-Melis et al. (2018), RFID provides significant value-added for the agri-food industry, as it results in a more efficient supply chain.
+According to Online Trade Magazine Agricultural Technology and Precision Farming, by placing RFID labels onto agrarian products ’ packages, growers can determine the health condition of the product, making it accessible for processing companies to coincidently add information on the label, like as company codes, the processing date, batch processing, and package weight.
+Je-Nong Cooperative Farm (a Taiwanese fruit producer) uses an RFID solution in tracking the processing of its fresh fruits and receipts at its facility. By using unresistant ultrahigh-frequency RFID tags attached to plastic crates, the company can cover every phase that the fruit goes through, and the conditions within the coolers before the fruit is transported to stores throughout Japan, Taiwan, China,  and Korea. By placing RFID markers onto agrarian products ’ packages, growers can determine the health condition of the product, making it accessible for processing firms to consistently add information on the label, like enterprise codes, the processing date, batch processing, and package weight. The growers can track their goods via a computer network. Produce can be examined through a tag, snappily moving along with the inspection. A decision could be made whether a temperature shift will affect a fresh farm product or not by reading the information stored on an RFID tag. RFID can also be used to cover climate conditions during transportation.
+RFID can be deployed to detect unauthorized access to shipments during storage, distribution, conveyance, and sales. Before agro-products enter a storehouse, the data stored on the RFID tag will be transmitted to a computer. The computer then releases warehousing instructions as to the suitable rack and places.  The proper inventory plan can be chosen based on the product requirement and specification. An information system will generate the picking and slotting order as soon as it receives a customer’s requisition. The system operator by matching the information on the RFID tag with the requisition then selects immediately the appropriate product. Additional information, such as the vehicle, distribution route, and schedule, has been embedded in the RFID tag during the distribution process. 
+Consumers can also benefit from the RFID application in sales by having basic information about the supply chain from the origin to the destination. RFID can help consumers to check the agricultural products’ safety. 
+A plant’s health management RFID can be used to check on a plant’s health through plant health inspection and certification, as well as agrochemical management. It can also be used in reducing the proliferation of plant pathogens. RFID was inserted into many plants for various reasons such as theft in cactus plants, citrus trees, and cypress to monitor disease, and for traceability in grapevines and cloning selection.
+5.	Libraries 
+Until the RFID technology appeared on the logistics scene, the inventories in libraries were manual because barcode doesn’t identify a book but a complete edition of a title. Radio Frequency Identification (RFID) as a tool is being used for the better governance and management of libraries (Nisha, 2018).  RFID offers quicker and faster circulation of books, including check-in, checkout, and renewal without wasting readers' time. Record keeping and shelving of the books have become easier. The requisite manpower to discharge all these housekeeping operations is minimized and has been redeployed for better and more productive assignments in the service of readers. The system has also put a check on the misplacing of books, stealing, and wrongful documentation (Nisha F., 2018). 
+From then so on, books can be placed and revoked automatically from the library’s inventory with the help of the RFID labels one by one. Additionally, updating this inventory can be done with many books concurrently since RFID readers don’t need a direct line-of-sight of any barcode individually.
+2.2	Biometrics
+Pujari, et al. 2021 stated that the word Biometrics originates from the Greek arguments “bios” (life) and “metrics” (measure). Rigorously talking, this refers to an area connecting the statistical examination of natural characteristics. thus, we must relate to biometric gratefulness of people, as those safety operations that dissect mortal characteristics for individuality evidence or identification.
+Biometric recognition offers a talented approach for safety applications, with approximate advantages over the traditional methods, which depend on somewhat you have (key, card, etc.), or somewhat you know (password, PIN, etc.). A good property of biometric characters is that it is built on somewhat you are or somewhat you do, so you do not essential to recollect anything nor to grip any token (Pujari, et al. 2021).
+Biometrics is the most acceptable method of identifying and authenticating individuals in a fast and proficient way through a unique biological characteristic.
+
+2.2.1 	Application Areas of Biometrics:
+i. 	Computer/Network security: Many stand-alone and network computer systems convey appreciated and delicate information. Controlling access to these systems is another major use of a biometric authentication system. 
+ii.	Internet transactions: Due to growing security requirements that result from the boom in e-commerce, many think of online transactions as being an obvious area for biometrics. The biometric authentication produces a better degree of salesperson confidence because he knows that person that the person at the incurable is, he who he claims to be. 
+iii.	Physical area security: Military, Government, and Commercial connections have satisfactorily strong confidentiality concerns.  
+iv.	Banking: Several leading banks have been investigating biometrics for an ATM use as a means of opposing card fraud.  Beginning of 2002, some companies will be delivering a smart credit cards, with customers’ fingerprint information embedded. 
+v. 	Voting: A logical use of biometrics is in the voting process where qualified politicians are compulsory to verify their identity. This is projected to stop “proxy” voting. 
+vi.	Prisons: An interesting use of biometrics is in penitentiaries where the visitors to a prisoner are subjected to verification actions so that identities may not be transacted during the visit.
+
+2.3	Empirical Framework 
+2.3.1	Empirical Study on RFID Usage in Schools 
+To cater to student attendance, Mahyidin (2018) developed a system based on the RFID and student card. This was aimed at eliminating the paper-based approach of recording attendance, thereby encouraging cheating and other forms of malpractice. Interestingly, the system aids the already tedious job of the lecturer. The Graphical User Interface (GUI) was developed using the Visual Basic 6.0 and the Microsoft Access was used as the back-end database. The work was described thus; “Firstly, the lecturer needs to fill forms in an interface like lecturer name, subject and code subject. This interface is crucial because the information here will be used in the next interface. In the next interface, the lecturer needs to choose the port and speed to make a connection with an RFID reader. After the reader was ready, the process to get an attendant will start. Students need to swap their cards on the reader and the code from the card will use to compare with the database in Access. When the code is matched with the database, the student information like name and ID number will show on an interface and that information will trigger into a list. This list will use as student attendance. In that list, all information like student name and ID number will be attached including the lecturer’s name and subject. If the code did not match with the database, it means that the student is in the wrong class or has not registered yet in that subject. When this happens, the lecturer can register that student by using registering the form and the information of that student will be updated into database”. The authors maintained that the study will aid the easy and automatic collection of attendance. The RFID concept developed by Mahyidin (2018) is described in Figure 2.3.
+
+Figure 2.3: RFID concept (Mahyidin, 2018)
+In the light of the problems attendant with the manual approach to documenting school attendance in Nigerian universities and colleges, Olanipekun & Boyinbode (2015) proposed an RFID-based automated attendance system. Using the Federal University of Technology, Akure, Nigeria as a case study, the developed system has several functionalities, which include, “…registering students, recording attendance, deciding on the eligibility of a student to sit for an examination in a course and other functions. This work eradicates the complexities encountered in manual method of attendance system with an automated approach applied through RFID technology”. 
+
+Jadhav, et al (2018) developed an “application that allows a user to check the status of security appliances using IoT. The proposed system will offer more security in checking drunk and driving, speed control, missing children, accident emergencies and inappropriate drop, etc. This system helps solve the problems of parents and school management because parents/guardians can use GPS to track the location of their child. An RFID tag is used to identify the child on the bus with the help of a reader present. GSM technology for sending the message to parents and school management. It also provides a panic button in an emergency. Students' daily data is stored in logistic management and also, parents can check this data at their convenience any time”.
+
+Elshaiekh & Al Darai (2018) designed a system technology that alerts parents and guardians on the status of their wards. In particular, “The system is developed to track and detect any student that enters an incorrect bus and uses RFID to control the entry and exit from school and buses, which provides great security feasibility for schools and student’s parent. Additionally, the system can be used anywhere such as in industries and educational institutions. However, RFID systems provide better solutions for protecting children within schools” (Elshaiekh & AlDarai, 2018). 
+
+The time-consuming nature of attendance before teaching motivated Miji?, et al (2019) to develop SAMS. The SAMS is an enhanced type of an earlier application (Bjelica & Mijic, 2012) underlined by RFID alongside the outcomes of an actual school environment. The faculty staff made the major advancements on the hardware part of the RFID reader and the web-based application that's integrated into the system. Besides the standard features of such systems related to pupil attendance, the system also includes features that enable integration with external systems, recording of necessary data regarding the work of preceptors in class, and generating of review reports on their work”. The software components of the RFID- based system are portrayed in Figure2.4.
+
+
+
+
+Figure 2.4: Software components of the RFID system (Miji?, et al., 2019).	
+Abbas et al (2019) presented the Safety Tracking and Sensoring System (STSS) that contributes to reducing the accidents of forgotten the students inside the school buses by enabling the parents to track their children. The system involves the installation of a sensor system in the bus to guard while they travel to and fro the school premises. This is because in this time and age technologies such as the Internet of Things (IoT) have enhanced the daily movement of students, thereby ensuring their safety. This has become expedient if one considers the proliferating accidents of forgetting the pupils who fall asleep in their buses, resulting in asphyxiation or death. To generate the required motivation for pursuing the study, the authors conducted used an online questionnaire approach to reach as many participants as possible. The questionnaires were two-fold: the school administration and the students’ parents. The questions include “the actors a routine question about the grade position of kids using academy motorcars i.e. concentrating on the quiddity of easing the security of pupils’ movement between their schools and their houses. The results of the question," What are the current security and safety systems accessible on academy vehicles to guard the children?”, are as follows 39 have a fire alarm system, 6 have a system to forestall suffocation and a dire 63 gave analogous answers as" There is no security system in the motor vehicles"," I do not see if there's a protection system in motorcars"," No, I don't witness those similar systems live for motorcars". Additionally, when asked how the parents tracked their wards, the participants confirmed the following results: “47% of parents tracked their children’s arrival at school in special circumstances by contacting the school, 63% said they contacted the driver or the supervisor, 38% said they did not track their child’s arrival at school.”. Figure 2.8 shows the tracking methods employed by the parents.
+
+Figure 2.5: Ways to track children (Abbas, et al. 2019)
+In a study described by Mendoza, et al (2019), the improvement of an Enhanced Curriculum in the Arts Program student monitoring system with RFID & SMS notification (SMSRSN) was proposed. The manual system requires the physical presence of a guard, who checks the individual identity cards (IDs), thereby wasting time. Additionally, the RFID tags are worn by the Students and they will simply skip through the RFID reader to become aware of their information and saved the file of their entering and exit time to the database. SMS notification is used to inform parents. The SMSRSN poses less difficulty in the attendance process because the coordinator mans the host computer and monitors the students. The study also assessed the impact of the application and confirmed that the goals that the authors were sufficiently addressed. The structure of the SMSRSN is depicted in Figure 2.9
+
+Figure 2.6: The Structure of the SMSRSN (Mendoza, et. al., 2019)
+
+The importance of attendance in determining the regularity and sincerity of students cannot be overstated. Manually tracking student attendance with pen and paper had become a thing of the past because it not only flags fraudulent submissions by students but can also lead to inaccurate attendance evaluations. Therefore, Dandekar, et al (2020) proposed a combination of the latest technology using RFID, the Internet of Things (IoT), and web-based development using PHP, Apache web server, and SQL. The Node MCU ESP8266 (Microcontroller) acts as an information acquisition system for the module. The Node MCU ESP8266 (Microcontroller) should be connected to the RFID module. By using the RFID Module, the RFID card and tag are scanned and by using ESP8266 data is sent to the MYSQL Database which is connected through a PHP web page.
+
+Chandramohan et al (2017) developed an Attendance Monitoring System for Students based on a Biometric and GPS Tracking System A fingerprint-based attendance management system. The system consists of a fingerprint acquisition module and a GSM modem. The fingerprint and pre-treatment are captured using the fingerprint acquisition module.  GSM modem is the tool used in sending to parents in form of SMS the attendance of the students, and the Global Positioning System (GPS) is a radio navigation system that allows sea, airborne, and land users to detect their exact location, velocity, and time in all weather conditions, anywhere in the world 24 hours a day, in all weather conditions, anywhere in the world. After some time, intervals the details of the students who weren't present were taken. Those persons' details were taken the message “NOT PRESENT “is sent to their respective parent's mobile numbers. So, the parents may know about the student's presence immediately (Chandramohan, et. al, 2017).
+At Punjab University, Umar et al(2014) developed an RFID- based security and access control system they use in school lodges. “The system uses radio frequency identification with biometrics technology to detect the valid and invalid users. It accomplishes the security and access control task by processing information from sub-controllers. These controllers include an entrance monitoring controller, exit monitoring controller, and mess monitoring controller installed at the entrance gate, exit gate, and mess gate respectively. These controllers read the RFID tag issued to the user and search this tag number in non-volatile RAM. The controller signals the computer terminal to capture the user image on a successful match. The computer system verifies the authenticity of the users using a neural network-trained face recognition module and responds to the controllers by sending them “access denied” or “access granted” notifications. The controllers grant the access to the user or make the emergency call accordingly.
+
+Kyaw, et al (2016) designed a system that informs parents about the status of their children such as their absence from the school bus. The system checks and detects which child enters the wrong bus and issues an alert to this effect. The RFID tags won by students were detected by an RFID-based detection unit located inside the school bus. In addition, the system checks the children's absence and updates the database. The parents of the students can sign in to the system website and review their children's details.
+
+
+
+Figure 2.7: Block Diagram of the system (Kyaw, et al., 2016)
+
+Due to the increase in abduction of school children for various reasons such as child labor, ransom, organ trade, and begging. Parents are cautious about sending their ward to school. They purely depend upon the school to ensure that their child is safe while entering and exiting the school premises. To ensure the safety of the child, Priya et al. designed a system that implements Radiofrequency. “Student information such as check-in time and check out time from the campus is saved on mobile application and thus the SMS gateway is automatically sent notification to parents about their child using SMS that the student arrived safely at the school. The development of IoT based attendance management system involves the process of confirming the students are entering the school premises by RFID mechanism. The system will automatically update the attendance onto the server and simultaneously send a message to the parent to notify them about the arrival of their children also the assignments for the students can be updated by the teachers to the parents.
+
+
+Figure 2.8:Security System (Priya et al., 2020)
+
+Rahman, et al. (2019) developed an RFID-based security and access control system. This system provides a unique identification number that is an RFID card. Generally, the RFID card is scanned in an RFID reader. RFID reader then sends data to Arduino where the database program is previously set. Arduino programs are written in C language. If anyone remains absent after school starts, the GSM module sends an automated SMS to his or her parents. In an emergency case, students may need to leave school premises, then he/she can take special permission from the school authority. There is a button set for the administration to open the gate immediately for this reason. Parents are provided an RFID card from the school authority because student cards don’t work for the second time in a day. So, parents have to scan their cards after school to receive their children. And their card can only work after school.
+
+
+Figure 2.9: Block diagram of the RFID-based security system (Rahman, et al. 2019)
+
+Subashchandraboss and Pajany (2015) designed an Attendance monitoring system for colleges using RFID technology and fingerprint to identify the person.“The fingerprint scanner process scans the image of the student’s thumps and performs the identification process. The image scanned is compared with the image stored in the database for every student and once the image is matched, it will mark Attendance for that student and enroll the time in the database automatically. The visual Basic front end is used to interface the microcontroller and PC through serial port and database connectivity and validation checking options. MS Access is used as the back end to store the details of every student” (Subashchandraboss, et al., 2015).
+
+
+Figure 2.10: System Architecture (Subashchandraboss, et al. 2015)
+
+Ukoima, Ekwe and Ezeonye (2010) developed an RFID-based student attendance system with short message service (SMS) notification backup which helps save valuable time for both students and lecturers and helps to generate accurate reports when required. The short message service (SMS) feature is used as a backup whenever data loss occurs on the PC system. The authors addressed the means of automatically registering students, recording attendance, saving students’ data on the personal computer (PC) as well as backing this data via the global system for mobile communication (GSM), and eventually making a decision on the eligibility of a student to sit for an exam course. The design has four major parts: the input section (RFID tag and RFID reader), the control section, the power section, and the display unit. When a student who enters a classroom swipes the RFID tag near the reader that is connected externally to a microcontroller-based embedded system, the system grants access to a registered student and records the attendance details on a PC database. An SMS containing the exact details is sent to the mobile phone for data backup through the GSM SIM 900 Modem.
+
+
+Figure 2.11: Block Diagram of the System (Ukoima, et al. 2019)
+
+Pranjali, Harsha, Ashwini, Juiele and Ankita(2020) developed a School Security System using RFID? to produce security to the college students. The attendance system is time-effective and it reduces the traditional method of taking attendance in school also as it doesn't require any power consumption. “The system sends a notification to parents/guardians through a text message once the child enters/exits the school premises, letting them monitor the attendance of their children”. The system was designed with the combination of the latest technology using RFID, the Internet of Things (IoT), and web-based development using PHP, Apache web server, and SQL. The Node MCU ESP8266(Microcontroller) acts as an information acquisition System for the module (Pranjali, et al., 2020).
+
+2.3.2	 Summary of Literature Review
+In this chapter, a thorough review of pertinent literature was performed to provide the necessary literature support for the development of the SSS developed herein. Specifically, the concept of RFID and Biometrics was defined and its parts and functionalities were described (Sub-section). A Brief History and the key application areas of RFID were presented in sub-sub-sections 2.1.1 and 2.1.2, definition of biometrics (Sub-section 2.2), and application areas of biometrics (sub-section 2.2.1) respectively. Afterward, several studies that employed RFID were reviewed (Sub-section 2.3) as well as the knowledge gap (Sub-section 2.4), which our study hopes and attempts to fill. Table 2.2 contains a tabular summary of the reviewed studies herein.
+
+
+AuthorChallenge /Objective Study Area (School Type)Application Development Environment DatabaseRFIDStrengthOlanipekun&Boyinbode (2015)Manual Approach of documenting attendance University and colleges Visual Studio 2010 (VB.Net)Microsoft AccessUART is incorporated through the RS-232 (Serial Port) cable.Used a case study (Federal University, Akure Nigeria)Mahyidin (2018)Student attendance Secondary Visual
+Basic 6.0Microsoft Access 2003Not describedUsed visual programming Elshaiekh& Al Darai (2018)Safe bus transportation Primary and secondary schoolsNot mentionedDB type not mentionedNot mentionedSMS was used for notificationJadhav,  et al., (2018)Missing childrenPrimary and secondary schoolsEclipseMySQLSpecification not mentionedA mathematical model, SMS, and Arduino were usedMiji?, et al., (2019)The time-consuming task of student attendanceUniversity PHP programming
+Language and CakePHP frameworkMySQLSmaller dimensions of the PCB and more compact & placed in a 125x125mm ABS plastic housing. Possess a listener Abbas, et al., 
+(2019)Accidents of students falling asleep on the busPrimary and secondary schoolsJava and XML of Android StudioMySQLRFID  type not mentionedUsed sensor, SMS, GPRS/GSM serviceDandekar, et al.  (2020)Safety of children Primary and secondary schoolsPHP programming
+Language and  Apache web serverMySQLRFID-RC522 ReaderRFID, IoT, and web development
+
+Table 2.2: Summary of the RFID Reviewed Studies
+
+
+2.4	Knowledge Gap
+As shown in Table 2.2, it is evident that the context of pursuit is yet to be addressed by the studies above, and in those positions, which are unaddressed lies the gap and rationale for our study. These gaps are as follows; 
+1. NO work has added biometric features (Facial Recognition) to the RFID-based School Security system in Nigeria. This implies that in the reviewed works students can abuse this concept. Covering up for a fellow student in order not to incur punishments from the school authorities may inadvertently expose him/her to kidnap attempts. 
+2. NO work above considered kidnappings in North-eastern Nigeria or the country at large. Most of the studies’ presented mostly bus transportation scenarios (Shaaban, et al., 2013; Elshaiekh & Al Darai, 2018; Jadhav, et al., 2018 Abbas, et al., 2019)) and student attendance (Mahyidin, 2018; Agrawal & Bansal, 2013, Olanipekun & Boyinbode, 2015 and Miji?, et al., 2019). 
+3. NO work added the security operatives in the loop of communication, thereby, establishing a long-time lag between when the time of kidnap and the time of security/support response from the police and the armed forces. Peradventure, these security forces are mandatorily instructed to stand guard at the school premises, our SSS can help inform parents the exact time a student enters or exits the school premises, and with this, security operatives can be informed on time when there are casualties and needs for them to take cover.
+
+
+CHAPTER THREE
+SYSTEM ANALYSIS AND METHODOLOGY
+
+3.1	System Analysis
+Here, we analyze both the existing manual and newly proposed system to understand obsolete innate workflows that require modification and adjustments to match menacing events of contemporary times. Actual diagrammatic analyses would also follow this pattern too. 
+3.1.1 	Analysis of the Existing System
+The existing system is not an automated one but a paper-based one and the implication is that data input and retrieval are time-consuming. First, the students are enrolled into the system, and while new students get registered, this registration is done on registers which are mostly long 80 leaves notebooks, depending on the pocket and buoyancy of the school. Then after that, the student(s) is given an ID card as proof of studentship. This ID card is always verified by a guard at certain strategic locations inside and outside the school premises. During the verification, the guard confirms that the identity of the person presenting the ID card is the same as the information it contains. Then he records that movement in a smaller notebook, specifically, indicating the name of the student, the class, age, the purpose of movement, time out, and time in. The guard may have to verify if the student is authorized to make that movement. For students living outside the school hostels, the guard confirms the identity of the students leaving the school at the end of the day is also verified and confirmed by the guard before he lets out. This is usually a time-consuming process and is not usually observed. In cases where the students need to board the school buses, a guard verifies and confirms identities. However, some parents may come themselves or send guardians (or house helps) to carry their wards. The guard at the gate confirms and verifies the identity and authenticity of the person demanding to take the children home. Most times, this is done by placing a call to the parents of the children. Peradventure is something that happens the first to hear follows the chain of command (the person that heard first to the headteacher to vice principal to the Principal). Finally, the Principal/Headmaster reports to the local vigilante or other law enforcement agency existent in the metropolis. Then these agencies dispatch armed men to take charge of the situation and start a search for the abducted persons if the abductors have escaped. All these processes, are very time-consuming and would benefit from the kind of automation our study proposes. 
+
+3.1.2 	Weaknesses of the Existing System
+In the light of the newly proposed system, we identified the following weaknesses of the existing manual system. 
+1. The manual paper-based approach of recording student attendance and location. Long notes and papers are used to document the coming in and going out of the students are time-consuming and prone to error. 
+2. The parents have no information about the way about of their wards. They must physically enquire from the school management for them to be able to know. This wastes the meaningful time required to catch the abductors. 
+3. Mandatory presence of a guard at the gate. Here the guard, who is usually an old retiree may tend to slack at his duties, thereby, lowering the quality of security at the school premises. 
+4. Doctoring and the abuse of the school ID cards i.e., students give their ID cards to fellow students. Students who loiter during school hours are the main culprits of the offense. 
+5. More time is wasted during data retrieval from these long notes. In case of accidents or abductions, the long notes are flipped through and searched recto and verso, to be able to allow the compilation and confirmation of the identities of the missing student(s). 
+3.2 Analysis of the Proposed System 
+This project uses RFID technology to make a note of every student entering the school and also to calculate the time. In this proposed system, every student is allotted an RFID tag. The process of attendance is done by placing the card near the RFID reader. An information system “School Security System (SSS)” will be used to capture the details of a new student. This is their biodata, alongside that of their parent’s information. All the information is saved in a database developed alongside the graphical user interface. Then after that, the student is given a FRID tag as proof of studentship. The RFID of old students is tagged. With the School Security System (SSS), one can view information about old students and can send notification alerts to parents, and record and generate attendance reports for the school, for easy communication and information retrieval when there are emergencies, accidents, and need for support. During the verification, the biometrics is used to confirm that the identity of the person presenting the RFID card is the same as the information it contains in the system, whenever the student is making any movement outside the school premises. The system will automatically record the time-out and time-in of the student. For students living outside the school hostels, the RFID reader records the ID number, time, and date when the student enters or leaves the school premises, and then transfers this data into a secure database. The parents will get notified via SMS two times when the student is entering/ leaving the school. 
+
+
+Figure 3.1 Context Diagram of SSS
+3.2.1 Advantages of the Proposed System
+The advantages of the new system are basically what stakeholders stand to gain by the deployment of the SSS. 
+1.	Improved security structure for the pupils: The use of a notification system performs the role of contacting the family of the students, regarding their arrival and leaving the school since the school administration cannot check their students one by one or even notify their parents too at the same time. 
+2.	Crime and illegal activities’ reduction: With this system, illegal activities such as impersonation, and leaving the school premises without authorization and before the time, which do not conform to school norms and regulations are curbed.
+3.	Scale down the degree of distressing panic, fretting, and agony: Hypothetically speaking, if parents are instantly notified and alerted or if they at all times can know the status/location of their child, they will feel at ease to a large extent. Without any iota of doubt, knowledge about students in real-time will help raise their hopes in the security of the school system, which in turn permits them regularly to face their work to put food on the table for their household.
+3.2.2 High-Level Model of the Proposed System
+The proposed system (SSS) and all interacting modules are illustrated using the high-level model (HLM) in Figure 3.2. HLM shows the different dimensions and functionalities of the proposed system i.e., the RFID module, and the web services. SMS notification is possible due to the interfacing 
+
+Figure 3.2: High-Level Model of the proposed system and Interacting Modules
+
+3.3 	Methodology Adopted
+In this research for the development of the SSS application, we employed the Instructional system's design (ISD), and ADDIE (Analysis, Design, Development, Implementation, and Evaluation)model. To create an effectual application, all design models need the following stages: analysis, design, development, implementation, and evaluation; these stages are abbreviated as ADDIE. The efficacy of ADDIE is found in its next-phase-informing nature, making it logical and viable for the development of any kind of Information tool. More so, it can therefore be used to produce a captivating experience for users. Acclaimed for its resounding popularity in the development of educational instruction, it also presents an easy process that even amateur analysts can follow. 
+This methodology was chosen because it has the advantage of rapid prototyping and possesses the capacity for continual and formative feedback during instructional materials creation. Most importantly, the ADDIE model conserves the precious time of the developer due to the early fixes it allows in the initial phases. 
+The description of stages of the original model is described with the aid of Figure 3.3 – the diagram depicting the ADDIE framework. 
+
+Figure 3.3 Development process of the SSS application using the ADDIE model (Parsazadeh et al., 2018)
+The cyclical ever-evolving ADDIE framework and how it can be used to achieve the objectives of the work are briefly described hereunder.
+
+Analysis phase: In the analysis phase, the designers’ main consideration is the target audience. First, a need analysis is conducted to determine the needs of the audience by distinguishing between what the School Security System already has and what it requires to be more effective. 
+In this study, the analysis has already been implemented by in-depth review and observations on the SSS in Nigeria which its result indicated that there was a high rate of child kidnapping and mass abduction of schoolchildren by terrorists, lack of requisite technology, worries among parents and lack of security which this work is meant to resolve.
+The materials needed include an RFID device, RFID tag, and biometric (face recognition).
+
+Design Phase: is aimed at developing an SSS application. Therefore, we achieved that by pinpointing managing aims, plans, instructional approaches, and the selection of the appropriate methodology that allows for cyclic-prone constant feedback. In this phase, an outline and explanation of the system and storyboard are created. Module, software program, and instrument to assess the quality of system modules are designed and determined. In this study, the application of RFID and biometrics in SSS was the result of the analysis step, which aimed to help and facilitate the security of school children. The component of the systems consisted of Input, Process, and Output. (See Figure 4.1).
+•	Component of Input includes student’s biodata, alongside that of their parent’s information.
+•	Component of Process includes the processing from the input component to the form of information and graphics. The system will automatically record the time-out and time-in of students in the database. 
+•	The output component includes the notification to parents via SMS two times when the student is entering and leaving the school premises. 
+
+Development Phase: Here we refer to the results from the previous two phases and construct a product for the delivery of the information during the development phase. This transitional stage transforms the role from research and planning to a production model. The development phase emphasizes three areas drafting, product, and evaluation. Evaluations during the development phase comprise a different focus than the factual evaluation layout that occurs during stage 5 of the ADDIE process. Encompassing a formative approach, evaluation during the development phase calls attention to the product (SSS) and the quality standards of the product. Here we determine if the users can handle the product and how it can be improved before implementation. For our study, the aim here is to, first of all, create prototypes and then perform initial tests to generate feedback. Additionally, we used C# programming language in Visual Studio Code for coding and Arduino IDE for the RFID controller development environment. 
+
+Implementation Phase:
+In the implementation phase, there must be an active role rather than a passive role. The designer or instructor’s role intensifies with the advent of this phase. School authorities, parents, students, and security operatives were trained on how to use the system. For the product to be delivered effectively, we must continue to analyze, redesign, and enhance the product. It can be ineffective for the implementation of the program if the produce or program is left to work in its natural state. No product, course, or program can be efficient without conducting an appraisal and required modifications throughout the execution phase. When the learners (users) and instructor are active contributors in the implementation, modifications can be made instantaneously to the course or program to ensure effectiveness. 
+
+Evaluation Phase: The evaluation phase is an essential component of the ADDIE process and is multidimensional. The evaluation phase can be during the development stage in the form of constructive evaluations, throughout the implementation phase with the help of the scholars and a stakeholder(educator), and at the end of the implementation of a procedure or program in the form of a summative evaluation for educational enhancement. Throughout the evaluation phase, the developer must determine if the problem has been answered(relative to training programs), if the objectives have been achieved, the impact of the product or course, and the changes that are necessary for the future delivery of the program or course. The evaluation phase can often be overlooked because of time or economic factors; however, it is a necessary practice. The evaluation phase should be an integral part of the continuation of analysis and effective implementation of future courses and programs. In our study, we conducted both formative assessments. This is to generate opinions, recommendations, and reports from the prototypes/application.
+
+
+CHAPTER FOUR
+SYSTEM DESIGN AND IMPLEMENTATION
+
+4.1	Objectives of the New Solution
+Every research is geared towards bridging a knowledge gap or finding a solution to an existing problem. The new system has some objectives which it is set to achieve and these objectives are measurable. The major objective of this work is to boost school security systems using Radio Frequency Identification (RFID) and biometrics (Facial Recognition) as compared to the already existing systems. To achieve this, the new system will handle the following:
+1. Send Alert to parents about the time in and out of school children to the school premises.
+2. Provide the requisite technology needed to handle the school security system and to manage attendance and complexities encountered during entering and exiting the school premises by the students. 
+3. Include within the School Security System (SSS) some biometric features (facial recognition) to reduce the abuse of the RFID card and impersonation among school children which can expose them to kidnappers. 
+4. The use of the School Security System (SSS) in Nigerian schools will help reduce crime against children and also reduce worries among parents about their child’s whereabouts during school hours. 
+
+4.2 	Decomposition and Cohesion of High-Level Model.
+Decomposition is the process of breaking down complex entities into smaller subparts, and then breaking those smaller parts down even more until the complex entity has been broken down into more discrete components with a more understandable structure. 
+The various independent component that makes up the software can be viewed in either the top-down or bottom-up style. But we adopt a top-down structure to decompose the various modules and from the prototype of the system, it is classified into their major functions. Below are the various modules that make up the proposed high-level model.
+
+When the program is run, it opens the index or home page of the system from which you can navigate to the other pages.
+
+
+4.2.1 Control Centre/Main Menu.
+Figure 4.1 is the control menu of the system showing the different modules and the various actions that can be performed on the various objects.
+			
+
+					
+Figure 4.1: Control Center/Main Menu
+The main menu of the system has five submenus that serve the following purposes below:
+1. Connection: this menu item allows the user of the application to connect to the RFID reader.
+2. Check-in: this gives the user access to check in and out by placing the tag on the reader.
+3. Register/Edit: Enables users to take students' biodata, and parents/guardian information and capture the image of a student during registration, edit student information, and train the system for face recognition and identification.
+4. Report: this menu enables the user to generate a report of student attendance.
+5. Login/Logout: This is the page that allows the user to log in to have access to the staff, or Admin pages and navigate through the application. Upon clicking the login menu, it provides other submenus which login /user type is one of them. These submenus allow the admin or staff to perform some functions and log out as well.
+
+4.3 Specifications
+This is a comprehensive description of the objectives of a development project. It contains all goals, functionality, and details required for the development and fulfillment of the vision of a project. It describes the new system being developed and lays out the functional and non-functional requirements. It may also include the use case that describes user interactions that the system must provide.
+
+4.3.1	Database Development Tool 
+The database management system used for the application is a Microsoft SQL Server. The DBMS was used to create various database schema objects that store and retrieve information from the database. The database was used to create the tables such as user_table, attendance_tableand rfid_registration_table. The databases were fully accessed using MySQLMAMP server from the phpMyAdmin providing an application programming interface (API) for accessing the database system programmatically. SQL statements were used in querying and updating records.
+
+4.3.2	Database Design and Structure
+The database was created using the MySQL database engine. The choice was made because MySQL is a very fast, robust, relational database management system that uses English-like commands such as INSERT, SELECT, DELETE, UPDATE, etc. MySQL also has other areas of strength such as portability, ease of use, security features, and reliability.
+The name of the database created and used is rfid_attendance. This database contains four (4) tables as shown in Tables 4.1 to 4.4
+
+Table 4.1 stores information of the admin that is registered. For the sake of the project, we created for the school administrator the option of adding further students.
+Table 4.1 User table
+FIELD NAMEFIELD TYPEFIELD LENGTHKEYsnInt11Primary keyusernameVarchar50passwordVarchar50UniqueusercatVarchar50nameVarchar100Table 4.2 Stores information of all individual staff of the school. 
+
+Table 4.2	attendance_table
+FIELD NAMEFIELD TYPEFIELD LENGTHKEYsnInt11Primary keyregnoVarchar50UniquestudentclassVarchar50studentlevelVarchar50getdateVarchar50gettimeVarchar50remarksVarchar50ispresentVarchar10Table 4.3 stores information on all individual students' attendance. 
+Table 4.3	rfid_registration_table
+FIELD NAMEFIELD TYPEFIELD LENGTHKEYsnInt11Primary keynameVarchar100IDVarchar100UniqueAddressVarchar100cityVarchar50countryVarchar50imagesVarcharlongblobgetdateVarchar50studentclassVarchar20genderVarchar10emailVarchar100phoneVarchar15stateoforiginVarchar50lgaVarchar100dobVarchar100regnoVarchar50sponsorVarchar100studentcatVarchar10Table 4.4 stores details of student biodata and sponsor.
+
+Table 4.4	Login_Table
+FIELD NAMEFIELD TYPEFIELD LENGTHKEYsnInt11NumericUsernameVarchar20Primary keyPasswordVarcharTextTable 4.4 stores the details of an individual user.
+
+4.3.3 Program Module Specification
+The entire system is broken down into different modules, these modules are then integrated to form the entire system. The modules that make up the entire system are listed below.
+a)	Administration Module
+This module handles the administration activities of the entire system, it includes data captured and storage of data in the database.
+b)	Attendance Module
+This module is handled by the user that was created by the central administrator of the system to handle the capture of records involved in students’ daily attendance time to the school and the leaving time from the school.
+c)	Notification Module
+This module handles sending a message to parents to inform them of the entering and exit time of the students to and from the school.
+4.3.4	Input/Output Specification
+This describes the input and outputs from the software system. The input design of the system determines largely the nature of the desired output. It has to do with the structure, nature, and format of input that the system needs for its proper functionality. The desired input will yield the expected output. 
+4.3.4.1 Input Format
+This input specification of the new system shows how data will be collected. Input enhances data entry into the computer system. Its design comprises the selection of an efficient system for collecting data into the computer system at the proper time and as accurately as possible. This is because the most delicate part of input design is accuracy. The employment of well-defined forms can encourage users to report data directly without elision. The input design of the system must capture all the data required by the system, error-free. Input errors can be greatly reduced when inputting directly by using appropriate forms for data capture and a well-designed computer screen layout. The use of text boxes, buttons, etc. was used in the input design layout, the input design was implemented using the window forms and other control components. Some of the Input formats are shown below.
+Login Form	
+This form allows the administrator and users of the system to have access to the system by supplying their login details. Figure 4.2 shows how the login information is captured and verified or validated by the system.
+
+
+
+
+
+
+Figure 4.2	Login Format
+The login form takes two values username and password. They are used for authentication purposes. When an input is made, the corresponding table in the database will be automatically checked to see if the username and password entered exist and are correct. If this is so the login attempt will be made successful otherwise errors will be flagged.
+Student Registration Form
+
+
+
+
+
+
+
+
+
+
+Figure 4.3Student registration form
+The form in figure 4.3 above helps the administrator of the system a chance to capture BioData of individuals student and their parents/Guardians and store this information in the database. He or is expected to enter his/her name, address, L.G.A, Phone number, Gender, state of origin, nationality, username, and password into the fields above. On clicking the button to sign up, he will be told if his registration is successful or not.
+4.3.4.2	 Output Format
+This refers to the paper specification of how the result from the system will be displayed to end-users. The result displays what has been input into the system. We have several output formats in this work some of which include staff records, Student Records, and Student Attendance records. Some of the output formats in this work are given below:
+User Record
+S/Nousernamepasswordusercatname# ## ## ##  ## ## ## ## ## ## #Figure 4.4User Record
+This form helps the school to know more about their staff and keep their record.
+
+Student Record
+S/NoStudent NameIDAddresscitycountryimagesgetdatestudentclassgenderemail phonenostateoforiginlgadobRegnoSponsorStudentcat# ## ## ##  ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #Figure 4.5 Student Record
+
+This helps the administrator to keep a record of the students that have been registered with the school.
+
+Student Attendance Record
+S/NoCustomer NameMobile NoCustomer AddressMessageDateAction# # ## # ## # ## ## ## ## ## ## # ## # ## # ## ## ## #Figure 4.6 Student Attendance Record
+This form helps the administrator, parents, and security operatives to keep track of the student(s) time-in and time-out in the school.
+
+4.3.5 Overall Object Diagrams of the New System
+4.3.5.1 System Activity Diagram 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 4.7 School Security Admin Activity Diagram
+
+
+4.3.5.2 Class Diagram of the Entire System
+Figure 4.15 represents the structure of the new system by showing the system’s classes, their attributes, operations (or methods), and the relationships among the various objects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 4.8: Overall Class Diagram of the Entire System 
+
+4.3.5.3 Sequence Diagram of the System
+Figure 4.17 which can also be called the event diagram describes the interactions among classes in terms of the exchange of messages. It shows the flow of logic in the system and the sequential order of the flow.
+
+
+
+Figure 4.9: Sequence Diagram of the Entire System
+
+4.3.5.4 Use Case Diagram of the Entire System
+Figure 4.19 is a diagram that shows how the different users interact with the system. The diagram shows different users (Admin and end-users) of the systems and the relationship with the different use cases in which the users are involved.
+
+
+
+
+
+
+
+
+
+
+Figure 4.10: Use Case Diagram of the Entire System
+
+4.3.5.5Component Diagram of the School Security System
+The figure 4.11shows how the components are wired together to form larger components or software systems. It provides a simplified, high-order view of the large system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 4.11: Component Diagram of the entire system
+
+
+4.4 System flowchart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 4.12: System Flowchart
+
+
+
+4.5	 Data Dictionary
+This is a collection of names, definitions, and attributes of data elements being captured in the database. It defines the structure of the database itself. Table 4.8 represents the data dictionary of the entire system.
+External Entities
+StudentIs a person who makes use of the RFID tag to mark attendanceSecurityIs a person who monitors and looks after the missing personparentIs a person that receives SMS when a student clocks in and out of school.AdminIs the person that edits data and monitors the system
+ProcessProcessProcess IdDescriptionRFID0Controls/Coordinates the activities regarding the students’ attendance.
+Data StoresDataData IdDescriptionAttendance Record1It is where student’s records are keptStudent register2It's where student biodata records are kept
+Data definition
+Field NameData Type/SizeDescriptionIdNumberIdentifier (Unique number assigned to a variable)Full nameVarcharComplete name of the userUser-nameVarcharName used in authentication of the systemPasswordPasswordCode or number used by a particular user of the systemAddressVarcharAddress of the userLgaVarcharThe local government of the userStateVarcharState of origin of the userNationalityVarcharCountry of the userEmailEmailEmail address of the parent or guardianDobDateTimeDate of birth 
+Table 4.4 Data Dictionary
+
+4.6	New system Requirements
+These are software and hardware components that a computer system should possess before it can be used to develop and run the software developed and hardware smoothly.
+
+4.6.1	Hardware Requirement
+These are physical components that a computer system should possess before the application can be developed and run on it. They are:
+i.	A processor of at least Pentium 4 above.
+ii.	512 MB RAM or above
+iii.	25 GB hard disk space.
+iv.	Monitor
+v.	Keyboard
+vi.	Mouse
+
+4.6.2	Software Requirements
+These are programs/applications that must be installed on the hard disk of a computer system that may be used to run/implement the software developed in this work. They are”
+i.	Operating system windows 2000xp or any higher version
+ii.	Local server for windows operating system/MAMP that is (contains; Apache 2.2.2.8, MYSQL 5.0.5, Arduino IDE, C#, and C language.
+iii.	Web browser example Mozilla Firefox, internet explorer, safari, etc.
+iv.	Antivirus scan example Avast or Norton 
+
+4.7	Program Development
+The software developed in this research work was implemented using Visual C#.net using the Microsoft Visual Studio 2015 Integrated Development Environment and Arduino IDE for the programming of the RFID micro-controller. In this work, classes, functions, and procedures were used to fully implement the system using the ADDIE Instruction Model for the analysis and methodology.
+
+4.7.1	Choice of Programming Language
+The choice of programming language is a very important thing to consider when developing such a system. Due to the problem encountered in the old system, it becomes very flexible but powerful database management.
+C# is chosen for the development of this system. We chose to work with this language because of the following advantages:
+i.	Encapsulated method signatures called delegates, which enable type-safe event notifications.
+ii.	Properties, serve as an accessory for private member variables.
+iii.	Attributes, which provide declarative metadata about types at run time.
+iv.	Inline XML documentation comments.
+v.	Language-Integrated Query (LINQ) provides built-in query capabilities across a variety of data sources. 
+C# supports pointers and the stereotype of “unguarded” code for those cases in which immediate memory access is overcritical.
+The C# build process is simple compared to C and C++ and more flexible than Java. There are no separate title lines and no demand that methods and types be declared in a peculiar order. A C# source file can define any number of structures, interfaces, events, and classes. The database storage and management were implemented using the MYSQL database management tool.
+
+4.8 	Language Justification
+C# is an elegant, flexible, simple, type-safe, object-oriented language that allows enterprise programmers to build a breadth of applications. C# also gives you the capability to build durable system-level components under the following features:
+i.	Full COM/Platform support for existing code integration.
+ii.	Robustness through garbage collection and type safety.
+iii.	Security is provided through an intrinsic code trust mechanism.
+iv.	Full support of extensible metadata concepts.
+We were motivated to implement the system using the language for the above-mentioned reasons.
+
+4.8	Programme Testing
+The integration of every part of the SSS was tested to ensure that it works properly according to the requirements and basic objectives stated earlier in this report. This involves testing the modules to ensure that each phase of the design is error-free. When errors were identified, necessary corrections were made in each of the affected phases or modules. When it is successfully done, it is linked and loaded. Then, the attempts to execute the module were made, when this was satisfactory, test data was used to desk-check the design. Then incorrect data were used to the robustness of the software was efficient. 
+
+4.8.1	Changeover Procedure
+Here the new system is introduced while the initial process is still in phase, both systems are going to be run concurrently and the output is going to be checked against all the work output done by both systems.
+
+4.8.2	Recommended Procedure
+Parallel running is the best change-over procedure for the system because it provides a high degree of safety since the old system can be used whenever the computer system/software crashes or fails to function as it should. It is important however that the system be reviewed periodically so that any unforeseen problem may be solved; also, there is a constant need to maintain and improve applications and to keep to date with technological advances.
+
+4.9	System Implementation
+Implementation follows from a detailed design stage. During the implementation period. It is usual to continue with the old system until the new system is fully tested. There are several identifiable areas of activity in the implementation of the new system. they include
+i.	Training staff
+ii.	System conversion/changeover procedures.
+
+4.10	Training
+This is the aspect of system implementation that describes the step-by-step guidelines that users can follow to use the new system. We explain two major parts of the system how users can register the student and modify students’ biodata, how to retrieve information from the system and how students can make use of the RFID tag given to them.
+
+Steps on how to register students and modify the data
+i.	Log in to the system
+ii.	Connect the RFID Reader
+iii.	Fill/Edit the student form with his/her biodata
+iv.	Assign a tag to the student by scanning the tag to capture the tag number as the student number.
+v.	Scan/Upload the student picture
+vi.	Train the Image for facial recognition
+vii.	Save to the database
+
+Steps on how to retrieve the report from the database
+i.	Log in to the system
+ii.	Click on report
+iii.	Select the category (ie by class or as an individual)
+iv.	Click on generate report
+v.	Print report
+
+Steps on how to use the RFID Tag
+i.	The student will place the card at close range to the reader for scanning
+ii.	After scanning, the student then places his face on the camera for recognition and then enters/leaves the school.
+
+4.11	Documentation
+Software documentation or source code documentation is a written text that accompanies the new system that was developed. It can mean different things to different people, for some it is either to explain how the system operates or how to use the system for different roles.  In this research work, our documentation is mainly on how the application can be used and how it can also be installed following the stated system requirements and also details of how to use the system as stated in the training above. 
+
+4.12	Maintenance 
+To increase the life span of this software, it must be properly maintained. Changes may arise either due to changes in the environment or school requests for the inclusion of new facilities or the removal of the error. This can easily be done by any programming language. Ensure that the main program and backup are kept where they cannot be corrupted. Any slight fault found should be corrected to save the program from a fault that would eventually destroy it.
+
+
+
+CHAPTER FIVE
+SUMMARY, CONCLUSION, AND RECOMMENDATION
+
+5.1      Summary
+In this research, some existing School Security systems using RFID were reviewed and some of their advantages and drawbacks too were captured. As a result, we resorted to combining RFID and biometrics (facial recognition) systems to develop a more efficient school security system. This new School Security System (SSS) was implemented for marking attendance for students and storing the time of arrival and leaving the school in the database. The system sends Alert notifications to parents in real-time of student attendance at the school and when he or she leaves the school premises. The facial recognition system helps to prevent the abuse of the RFID tag assigned to every student thereby reducing illegal activities of the school children. This approach to the application of RFID and Biometrics in school security systems offers a solution for various weaknesses that must be faced in the already existing system including: 
+i. Real-time attendance recording for students.
+ii. Reduction of worries among parents/guardians on the whereabouts of their wards.
+iii. Security of the system through the implementation of a login system whereby unauthorized persons cannot have access to the system.
+iv. Ability to curb impersonation among school children.
+v. Enhance the security of the school children.
+
+5.2 	Conclusion
+The purpose of this research is to apply Radio Frequency Identification and Biometrics in School Security systems to tackle the bottlenecks faced by parents or guardians and school authorities in terms of effective security of school children and attendance recording. The research started with the execution of a rudimental investigation which provides a detailed investigation and analysis of the manual system and finally the design and implementation of the new system.
+The Release of this new system solves the problems of the existing system by reducing worries among parents/guardians about the whereabouts of their children when they move from house to school and also from school to the house. It will also reduce illegal activities of school children such as impersonation, and abuse of the RFID tag. It helps in cautioning the students' movement since their parents were notified of any movement they make in entering or leaving the school premises, reducing the risk of students' exposure to kidnappers.
+5.3	Recommendation
+The use of this system is recommended to all primary and secondary schools and organizations where management of information such as attendance recording is essential. Finally, the new School Security System that was designed will improve attendance taking and effective security of school children. 
+
+5.3.1Application Areas
+The system will be applied in any Primary and Secondary school in the world and not only in Nigeria. Other related sectors or companies can equally apply the system in their company for attendance recording purposes. 
+
+5.3.2      Suggested for Further Research
+In the future, we are looking forward to improving the system by adding a feature that can monitor in real-time the location of school children both in school and excursion activities using GPS. To integrate a sensor in the tag so that whenever the bearer is in danger, he/she can press the tag to alert security operatives. The reason for it is to ensure that the system continues to give information on the location of a student both in school and outside the school. 
+
+5.4     Contribution to Knowledge
+In this research work, the major contribution to knowledge is stated below
+i. Using an RFID tag only is not enough for the security of school children since anybody can make use of the tag to mark attendance for the owner, or commit illegal activity once he/she has access to it.
+ii. A combination of RFID and Biometric technology is more secure compared to using only either of them.
+iii. The new SSS helps to reduce panic among parents and gives room for an immediate search for a missing student once the parent/guardian did not receive a notification at the appropriate time.
+
+
+REFERENCES
+Abbas, S. Mohammed, H. Almalki, L. Hassan, M. &Meccawy, M. (2019).A Safety Tracking and Sensoring System for School Buses in Saudi Arabia. Periodicals of Engineering and Natural Sciences, 7(2), 500-508. http://pen.ius.edu.ba
+Abdulkader, O. et al. (2018): A novel and secure smart parking management system (SPMS) based on the integration of Wireless Sensor Network(WSN), RFID, and IoT’, in 2018 15th Learning and Technology Conference (L&T), IEEE, pp.102–106, DOI: 10.1109/LT.2018.8368492. 
+Altaf, M.S. et al. (2018) ‘Integrated production planning and control system for a panelized home prefabrication facility using simulation and RFID’, Automation in Construction, Vol. 85, pp.369–383, DOI: 10.1016/j.autcon.2017.09.009.
+Badia-Melis, R., McCarthy, U., Ruiz-Garcia, L., Garcia-Hierro, J., &Villalba, J. R. (2018): New trends in cold chain monitoring applications: A review. Food Control. 86, 170-182. https://doi.org/10.1016/j.foodcont. 2017.11.022
+Bagula, A., Castelli, L. and Zennaro, M. (2015) ‘On the design of smart parking networks in the smart cities: an optimal sensor placement model’, Sensors, Vol. 15, No. 7, pp.15443–15467, DOI: 10.3390/s150715443. 
+British Broadcasting Corporation (25 March 2018). Nigeria Dapchi abductions: Schoolgirls finally home. https://www.bbc.com/news/world-africa-43535872
+Chandramohan, J., Nagarajan, R., Kumar, A. M., Dineshkumar, T., Kannan, G., and Prakash, R. (2017). Attendance Monitoring System of Students based on Biometric and GPS Tracking System the Fingerprint-based Attendance Management System. International Journal of Engineering Research & Technology, 5(13), 1-5. 
+Chiagozie O.G and Nwaji O.G (2021): Radio Frequency Identification based attendance system with automatic door unit. Academic Research International. Vol 2 No 2.
+Dandekar, P., Satpal, H., Hinge, A., Jain, J &Lohakare, A. (2020).School Security System using RFID. International Research Journal of Modernization in Engineering Technology and 	Science, 2(3), 565 – 573.
+Elshaiekh, N. E. M. & A.I Darai, S. N. (June 2018). Radio Frequency Identification School Security 	System Enhancement.Journal of Management Information Systems& E-commerce, 5(1), 	7-13. DOI: 10.15640/beds.v5n1a2
+EW (2016) Tablets, e-ticketing Improve Construction Accountability for Concrete Loads, Equipment World [online] https://www.equipmentworld.com/iowa-dot-tablets-e-ticketingimprove- construction-accountability-for-concrete-loads/ (accessed 15 July 2018).
+FaizulNisha (2018). Implementation of Radion Frequency Identification (RFID) Technology at Defence Science Library, DESIDOC: A Case Study. DESIDOC Journal of Library & Information Technology, Vol. 38, No. 1, January 2018, pp. 27-33, DOI: 10.14429/djlit.38.1.12351
+Gender-Based Violence (GBV) Sub Sector, Nigeria Mid-Year Report January – June 2020. Pp.1–9.	https://www.humanitarianresponse.info/sites/www.humanitarianresponse. info/files/docu	ments/files/gbvss_nigeria_midyear_2020_report_final.pdf
+Health IT Legislation (March 27, 2015.) In Healthit.gov.  Retrieved March 10, 2016, from https://www.healthit.gov/policy-researchers-implementers/health-it-legislation
+IOWA DOT (2015) eTicketing Show Promise of Speeding Process and Improving Accuracy at Asphalt Job Sites, Transportation Matters [online] https://www.transportationmatters. iowadot.gov/2015/12/eticketing-show-promise-of-speeding-process-and-improving-accuracy-asphalt-job-sites.html (accessed 11 February 2019).
+Jadhav, A., Shinde, A., Nanavare, N., Ranmode, G., &Gavali, A. B. (2018). RFID Based Secure 	Smart School Bus System. IAETSD Journal for Advanced Research in Applied Sciences, 5(1), 127 – 134. http://iaetsdjaras.org/
+Kariapper, R.K. and Suhail, R. (2019). RFID Based (IoT) Automatic Attendance System: A 	Survey Analysis (April 16, 2019). https://ssrn.com/abstract=3372734 or 	http://dx.doi.org/10.2139/ssrn.3372734
+Kumari, L., Narsaiah, K., Grewal, M. K., &Anurag, R. K. (2015).Application of RFID in the agri-food sector. Trends in Food Science & Technology, 43(2), 144-161. https://doi.org/10.1016/j.tifs.2015.02.005
+Kyaw, A. S. M., Nwe, C. M., and Tun, H. M. (2016).Implementation of Student Safety System Using RFID. International Journal of Scientific and Research Publications, 6(6), 373 – 376.
+Lindhard, S. et al. (2019) ‘Impact of activity sequencing on reducing variability, Journal of Construction Engineering and Management, Vol. 145, No. 3, p.4019001, DOI: 10.1061/ (ASCE)CO.1943-7862.0001618.
+Mahyidin, M. F. B. (2018). Student Attendance using RFID System.Master Thesis, Electrical Engineering (Power Systems) Faculty of Electrical & Electronics Engineering, University Malaysia Pahang.
+MeganGreenwalt (2017). How RFID Technology is Evolving in the Waste and Recycling Industry. https://www.waste360.com/fleets-technology/how-rfid-technology-evolving-waste-and-recycling-industry?__cf_chl_managed_tk__= pmd_.8dmzQ53VO0.823SO1QbHMbu8uIIwUsn1J_ jODV9014-1632251064-0-gqNtZGzNAxCjcnBszQil.
+Mendoza, A. R., Rosco, E. V., Velasco, M. M. &Tiongco, E. (2019).Student Monitoring System with RFID & SMS Notification for Students of Enhanced Curriculum in the Arts Program.	International Journal of Advanced Research in Computer Science, 10(2), 35 – 41. DOI: 	http://dx.doi.org/10.26483/ijarcs.v10i2.6381
+Miji?, D., Durutovi?, J., Bjelica, O., &Ljubojevi?, M. (March 2019). An Improved Version of 	Student Attendance Management System Based on RFID. 18th International Symposium 	INFOTECH-JAHORINA, pp. 1 – 5. DOI: 978-1-5386-7073-6/19/
+MoutazHaddara, Anna Staaby (2018). RFID Applications and Adoptions in Healthcare: A Review on Patient Safety. Procedia Computer Science 138 (2018) 80–88
+National Toll Technology Survey (2016) Toll Technology Transforms Mobility for Customers – 2016, IBTTA.
+NHTSA (2018) Traffic Safety Facts: Speeding.
+Olanipekun, A. A. &Boyinbode, O. K. (2015). An RFID Based Automatic Attendance System in Educational Institutions of Nigeria. International Journal of Smart Home, 9(12), 65-74. 	http://dx.doi.org/10.14257/ijsh.2015.9.12.07
+Orjinmo, N. (March 2, 2021). Nigeria's school abductions: Why children are being targeted. BBC News, Abuja. https://www.bbc.com/news/world-africa-56212645
+Paaske, S., Bauer, A., Moser, T., &Seckman, C. (Summer, 2017). The Benefits and Barriers to Radio Frequency Identification (RFID) Technology in Healthcare. Online Journal of Nursing Informatics (OJNI), 21(2).
+Parkinson, J.  &Hinshaw, D. (2021).How the ‘Bring Back Our Girls’ Tweets Changed a War in Nigeria.The Wall Street Journal.https://www.wsj.com/articles/how-the-bring-back-our-girls-tweets-changed-a-war-in-nigeria-11613797261?mod=article_inline.
+Parkinson, J. (February 26, 2021, b). More Than 300 Girls Kidnapped in Latest Nigerian School 	Abduction. The Wall Street Journal.https://www.wsj.com/articles/more-than-100-girls-kidnapped-in-latest-nigerian-school-abduction-11614338957?mod=article_inline
+Parkinson, J. (March 12, 2021a). Nigeria Gunmen Abduct Students in Latest Mass Kidnapping. 	The Wall Street Journal.https://www.wsj.com/articles/nigeria-gunmen-abduct-students-	in-latest-mass-kidnapping-11615542361
+Pranjali D., Harsha S., Ashwini H., Juielee J., and Ankita L. (2020). School Security System Using RFID. International Research Journal of Modernization in Engineering Technology and Science 2(3), 565-573. 
+Parsazadeh, Nadia; Ali, Rosmah; Rezaei, Mehran (2018). A framework for cooperative and interactive mobile learning to improve online information evaluation skills. Computers & Education, 120(), 75–89. doi:10.1016/j.compedu.2018.01.010
+Priya, N, Divya, J. V, Prabhakaran, S, Vaira S. N (2020). Design of Student Security System Using RFID Mechanism. International Research Journal of Engineering and Technology, 7(3), pp. 33 – 38.
+Pujari V., Patil R. & Sutar S. (2021): Research Paper on Biometrics Security. Contemporary Research in India (Issn 2231-2137): Special Issue: April 2021 
+Rahman, S. N., Bashar, S. S., Al Mahmud, M. A., Miah, M. S., Karim, A. H. and Marium, M. (2019). A Security System for Kindergarten School Using RFID Technology. Journal of Computer and Communications, 7, pp. 21-30. https://doi.org/10.4236/ jcc.2019.74003
+Schwartz, C.W. et al. (2015). Use of Radio Frequency Identification Tags in Pavements, US Department of Transportation/Federal Highway Administration.
+Shaharban, V. (2019). Crimes against Children-Prevalence and Prevention Strategies. Child 	Protection Conference, pp.1-13.https://www.researchgate.net/publication/ 337444706
+Sharma, D.K., Mahto, R.V., Harper, C. and Alqattan, S. (2020) ‘Role of RFID technologies in transportation projects: a review, Int. J. Technology Intelligence and Planning, Vol. 12, No. 4, pp.349–377.
+Subashchandraboss, S. and Pajany, M. E. (2015), Hybrid of Student Attendance Tracking System Using RFID Device and Finger Sensor. International Journal of Computer Science and Mobile Computing, Vol.4 Issue.3, March- 2015, pg. 271-278
+U.S. Department of Health and Human Services. (2016, February 9). Strategic goal 1: Strengthen health care. Retrieved April 01, 2016, from   http://www.hhs.gov/about/ strategic-plan/strategic-goal-1/
+Ukoima, K. N., Ekwe O. A and Ezeonye C. S. (2019). Radio Frequency Identification (RFID) Based Attendance System with Short Message Service (SMS) Backup. IOSR Journal of Computer Engineering, 21(2), 1-8. 
+Umar F., Mahmoodul H., Muhammad A., Athar H., and Muhammad U. A. (2014). RFID Based Security and Access Control System. IACSIT International Journal of Engineering and Technology, 6(4), 309-314
+UNICEF (2021). Humanitarian Action for Children: Nigeria. pp.1-5. Error! Hyperlink reference not valid.
+United Nations Office on Drugs and Crime. (2021). The UNODC Roadmap on the Treatment of Children Associated with Terrorist and Violent Extremist Groups. 14th UN Crime Congress.https://www.unodc.org/nigeria/en/press/14th-un-crime-congress---the-unodc-	roadmap-on-the-treatment-of-children-associated-with-terrorist-and-violent-extremist-	groups.html
+Vivek Kumar, Anjali Srivastava, 2018: The Role of RFID in Agro-Food Sector.Agri Res & Tech: Open Access J. 14(4): 555924. DOI: 10.19080/ARTOAJ.2018.14.555924
+Weisner, K., Cawley, B., and Sindlinger, A. (2017) ‘The age of e-construction, in Public Roads, Vol. 81, No. 1, Federal Highway Administration.
+WHO (2017) Speed Management Key to Saving Lives, Making Cities More Liveable.
+World Health Organization. (2021). INSPIRE Seven strategies for ending violence against children.https://www.who.int/violence_injury_prevention/violence/inspire-package/en/
+World Health Organization. (8 June 2020). Violence against children.	https://www.who.int/news-room/fact-sheets/detail/violence-against-children
+Xing, S. et al. (2014) ‘Enhanced boundary condition-based approach for construction location sensing using RFID and RTK GPS’, Journal of Construction Engineering and Management, Vol. 140, No. 10, p.4014048, DOI: 10.1061/(ASCE)CO.1943-7862.0000889.
+https://link.springer.com/article/10.1007/s11119-017-9531-8
+https://rfid4u.com/wp-content/uploads/2015/12/GROWER-White-Paper.pdf
+https://www.agritechtomorrow.com/article/2019/12/how-rfid-technology-is-used-in-agriculture/11872
+
+
+
+
+Appendix A:  Source Codes
+
+using System;
+usingSystem.Collections.Generic;
+usingSystem.ComponentModel;
+usingSystem.Data;
+usingSystem.Drawing;
+usingSystem.Linq;
+usingSystem.Text;
+usingSystem.Threading.Tasks;
+usingSystem.Windows.Forms;
+using Emgu.CV;
+usingEmgu.CV.Structure;
+usingEmgu.CV.Face;
+usingEmgu.CV.CvEnum;
+using System.IO;
+usingSystem.Threading;
+usingSystem.Diagnostics;
+
+//rfid codes
+usingMySql.Data.MySqlClient;
+
+// additional
+usingSystem.Net.Sockets;
+//using System.Threading;
+
+
+
+namespacefaceDection
+{
+publicpartialclassForm1 :Form
+    {
+
+//rfid codes FileShare ;
+//server=localhost; user=yout_database_user; password=your_database_password; database=your_database_name
+MySqlConnection Connection = newMySqlConnection("server=localhost; user=root; password=; database=rfid_attendancedb");
+MySqlCommandMySQLCMD = newMySqlCommand();
+// Dim MySQLCMDAs New MySqlCommand
+MySqlDataAdapterMySQLDA = newMySqlDataAdapter();
+
+DataTable DT = newDataTable();
+stringTable_Name = "rfid_attendance_table"; //your table name
+int Data;
+
+BooleanLoadImagesStr = false;
+stringIDRam;
+//string IMG_FileNameInpu;
+StringIMG_FileNameInput;
+stringStatusInput = "Save";
+stringSqlCmdSearchstr;
+
+publicStringStrSerialIn;
+//public shared string StrSerialIn;
+Boolean GetID = false;
+BooleanViewUserData = false;
+
+
+// initialisingfaceDetection Variables
+#region Variables
+inttestid = 0;
+privateCapturevideoCapture = null;
+privateImage<Bgr, Byte>currentFrame = null;
+Mat frame = newMat();
+privateboolfacesDetectionEnabled = false;
+//CascadeClassifierfaceCasacdeClassifier = new CascadeClassifier(@"C:\haarcascades\haarcascade_frontalface_alt_tree.xml");
+// CascadeClassifierfaceCasacdeClassifier = new CascadeClassifier(@"C:\Programming\VB PROJECTS\FaceRecognitionApp\Simple Face Recognition App\haarcascade_frontalface_alt.xml");
+CascadeClassifierfaceCasacdeClassifier = newCascadeClassifier("haarcascade_frontalface_alt.xml");
+
+
+Image<Bgr, Byte>faceResult = null;
+List<Image<Gray, Byte>>TrainedFaces = newList<Image<Gray, byte>>();
+List<int>PersonsLabes = newList<int>();
+
+boolEnableSaveImage = false;
+privateboolisTrained = false;
+EigenFaceRecognizer recognizer;
+List<string>PersonsNames = newList<string>();
+
+#endregion
+
+
+// initialising Webcam Variables
+bool _streaming;
+Capture _capture;
+
+
+
+publicobject My { get; privateset; }
+
+//Public Shared StrSerialInAs String
+//Dim GetID As Boolean = False
+//Dim ViewUserDataAs Boolean = False
+
+public Form1()
+        {
+InitializeComponent();
+        }
+
+privatevoid Form1_Load(object sender, EventArgs e)
+        {
+// webcam initialising Webcam Variables
+            _streaming = false;
+//_capture = new Capture();
+
+//rfid codes;
+this.CenterToScreen();
+this.WindowState = FormWindowState.Maximized;
+ComboBoxBaudRate.SelectedIndex = 3;
+
+// state and lga
+
+ComboBox_StateofOrigin.Items.Add("ABIA");
+ComboBox_StateofOrigin.Items.Add("ADAMAWA");
+ComboBox_StateofOrigin.Items.Add("AKWA IBOM");
+ComboBox_StateofOrigin.Items.Add("ANAMBRA");
+
+ComboBox_StateofOrigin.Items.Add("BAUCHI");
+ComboBox_StateofOrigin.Items.Add("BAYELSA");
+ComboBox_StateofOrigin.Items.Add("BENUE");
+ComboBox_StateofOrigin.Items.Add("BORNO");
+ComboBox_StateofOrigin.Items.Add("CROSS RIVER");
+
+ComboBox_StateofOrigin.Items.Add("DELTA");
+ComboBox_StateofOrigin.Items.Add("EBONYI");
+ComboBox_StateofOrigin.Items.Add("EDO");
+ComboBox_StateofOrigin.Items.Add("EKITI");
+ComboBox_StateofOrigin.Items.Add("ENUGU");
+
+ComboBox_StateofOrigin.Items.Add("FCT");
+ComboBox_StateofOrigin.Items.Add("GOMBE");
+ComboBox_StateofOrigin.Items.Add("IMO");
+ComboBox_StateofOrigin.Items.Add("JIGAWA");
+ComboBox_StateofOrigin.Items.Add("KADUNA");
+ComboBox_StateofOrigin.Items.Add("KANO");
+ComboBox_StateofOrigin.Items.Add("KATSINA");
+ComboBox_StateofOrigin.Items.Add("KEBBI");
+ComboBox_StateofOrigin.Items.Add("KOGI");
+ComboBox_StateofOrigin.Items.Add("KWARA");
+
+
+ComboBox_StateofOrigin.Items.Add("LAGOS");
+ComboBox_StateofOrigin.Items.Add("NASARAWA");
+ComboBox_StateofOrigin.Items.Add("NIGER");
+ComboBox_StateofOrigin.Items.Add("OGUN");
+ComboBox_StateofOrigin.Items.Add("ONDO");
+ComboBox_StateofOrigin.Items.Add("OSUN");
+ComboBox_StateofOrigin.Items.Add("OYO");
+ComboBox_StateofOrigin.Items.Add("PLATEAU");
+ComboBox_StateofOrigin.Items.Add("RIVERS");
+ComboBox_StateofOrigin.Items.Add("SOKOTO");
+ComboBox_StateofOrigin.Items.Add("TARABA");
+ComboBox_StateofOrigin.Items.Add("YOBE");
+ComboBox_StateofOrigin.Items.Add("ZAMFARA");
+
+            tabControl1.SelectedTab = tabPage_main;
+
+        }
+
+privatevoidbtnCapture_Click(object sender, EventArgs e)
+        {
+//Dispose of Capture if it was created before
+if (videoCapture != null) videoCapture.Dispose();
+videoCapture = newCapture();
+//videoCapture.ImageGrabbed += ProcessFrame;
+Application.Idle += ProcessFrame;
+// videoCapture.Start();
+        }
+
+privatevoidProcessFrame(object sender, EventArgs e)
+        {
+// throw new NotImplementedException();
+//Step 1: Video Capture
+if (videoCapture != null&&videoCapture.Ptr != IntPtr.Zero)
+            {
+videoCapture.Retrieve(frame, 0);
+currentFrame = frame.ToImage<Bgr, Byte>().Resize(picCapture.Width, picCapture.Height, Inter.Cubic);
+
+//Step 2: Face Detection
+if (facesDetectionEnabled)
+                {
+
+//Convert from Bgr to Gray Image
+MatgrayImage = newMat();
+CvInvoke.CvtColor(currentFrame, grayImage, ColorConversion.Bgr2Gray);
+//Enhance the image to get better result
+CvInvoke.EqualizeHist(grayImage, grayImage);
+
+Rectangle[] faces = faceCasacdeClassifier.DetectMultiScale(grayImage, 1.1, 3, Size.Empty, Size.Empty);
+//If faces detected
+if (faces.Length> 0)
+                    {
+
+foreach (var face in faces)
+                        {
+//Draw square around each face 
+CvInvoke.Rectangle(currentFrame, face, newBgr(Color.Red).MCvScalar, 2);
+
+//Step 3: Add Person 
+//Assign the face to the picture Box face picDetected
+Image<Bgr, Byte>resultImage = currentFrame.Convert<Bgr, Byte>();
+resultImage.ROI = face;
+picDetected.SizeMode = PictureBoxSizeMode.StretchImage;
+picDetected.Image = resultImage.Bitmap;
+
+if (EnableSaveImage)
+                            {
+//We will create a directory if does not exists!
+string path = Directory.GetCurrentDirectory() + @"\TrainedImages";
+if(!Directory.Exists(path))
+Directory.CreateDirectory(path);
+//we will save 10 images with delay a second for each image 
+//to avoid hang GUI we will create a new task
+Task.Factory.StartNew(() =>
+                                {
+for (inti = 0; i< 10; i++)
+                                    {
+//resize the image then saving it
+resultImage.Resize(200, 200, Inter.Cubic).Save(path + @"\" + txtPersonName.Text + "_" + DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss") + ".jpg");
+Thread.Sleep(1000);
+                                    }
+                                });
+
+                            }
+EnableSaveImage = false;
+
+if (btnAddPerson.InvokeRequired)
+                            {
+btnAddPerson.Invoke(newThreadStart(delegate
+                                {
+btnAddPerson.Enabled = true;
+                                }));
+                            }
+
+// Step 5: Recognize the face 
+if (isTrained)
+                            {
+Image<Gray, Byte>grayFaceResult = resultImage.Convert<Gray, Byte>().Resize(200, 200, Inter.Cubic);
+CvInvoke.EqualizeHist(grayFaceResult, grayFaceResult);
+var result = recognizer.Predict(grayFaceResult);
+                                pictureBox1.Image = grayFaceResult.Bitmap;
+                                pictureBox2.Image = TrainedFaces[result.Label].Bitmap;
+Debug.WriteLine(result.Label + ". " + result.Distance);
+//Here results found known faces
+if (result.Label != -1 &&result.Distance< 2000)
+                                {
+CvInvoke.PutText(currentFrame, PersonsNames[result.Label], newPoint(face.X - 2, face.Y - 2),
+FontFace.HersheyComplex, 1.0, newBgr(Color.Orange).MCvScalar);
+CvInvoke.Rectangle(currentFrame, face, newBgr(Color.Green).MCvScalar, 2);
+                                }
+//here results did not found any know faces
+else
+                                {
+CvInvoke.PutText(currentFrame, "Unknown", newPoint(face.X - 2, face.Y - 2),
+FontFace.HersheyComplex, 1.0, newBgr(Color.Orange).MCvScalar);
+CvInvoke.Rectangle(currentFrame, face, newBgr(Color.Red).MCvScalar, 2);
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+//Render the video capture into the Picture Box picCapture
+picCapture.Image = currentFrame.Bitmap;
+            }
+//Dispose the Current Frame after processing it to reduce the memory consumption.
+if (currentFrame != null)
+currentFrame.Dispose();
+
+        }
+
+privatevoidbtnDetectFaces_Click(object sender, EventArgs e)
+        {
+facesDetectionEnabled = true;
+        }
+
+privatevoidbtnAddPerson_Click(object sender, EventArgs e)
+        {
+btnAddPerson.Enabled = false;
+EnableSaveImage = true;
+        }
+
+privatevoidbtnTrain_Click(object sender, EventArgs e)
+        {
+TrainImagesFromDir();
+        }
+
+
+//Step 4: train Images .. we will use the saved images from the previous example 
+privateboolTrainImagesFromDir()
+        {
+intImagesCount = 0;
+double Threshold = 2000;
+TrainedFaces.Clear();
+PersonsLabes.Clear();
+PersonsNames.Clear();
+try
+            {
+string path = Directory.GetCurrentDirectory() + @"\TrainedImages";
+string[] files = Directory.GetFiles(path, "*.jpg", SearchOption.AllDirectories);
+
+foreach (var file in files)
+                {
+Image<Gray, byte>trainedImage = newImage<Gray, byte>(file).Resize(200, 200, Inter.Cubic);
+CvInvoke.EqualizeHist(trainedImage, trainedImage);
+TrainedFaces.Add(trainedImage);
+PersonsLabes.Add(ImagesCount);
+string name = file.Split('\\').Last().Split('_')[0];
+PersonsNames.Add(name);
+ImagesCount++;
+Debug.WriteLine(ImagesCount + ". " + name);
+
+                }
+
+if (TrainedFaces.Count() > 0)
+                {
+// recognizer = new EigenFaceRecognizer(ImagesCount,Threshold);
+recognizer = newEigenFaceRecognizer(ImagesCount, Threshold);
+recognizer.Train(TrainedFaces.ToArray(), PersonsLabes.ToArray());
+
+isTrained = true;
+//Debug.WriteLine(ImagesCount);
+//Debug.WriteLine(isTrained);
+returntrue;
+                }
+else
+                {
+isTrained = false;
+returnfalse;
+                }
+            }
+catch (Exception ex)
+            {
+isTrained = false;
+MessageBox.Show("Error in Train Images: " + ex.Message);
+returnfalse;
+            }
+
+        }
+
+privatevoidbtnRecognize_Click(object sender, EventArgs e)
+        {
+
+        }
+
+privatevoid tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+privatevoidbutton_webcam_Click(object sender, EventArgs e)
+        {
+picOutput.Image = picStream.Image;
+        }
+
+privatevoidbtnStreamOnOff_Click(object sender, EventArgs e)
+        {
+
+            _capture = newCapture();
+
+if(!_streaming)
+            {
+Application.Idle += streaming;
+btnStreamOnOff.Text = @"Stop Streaming";
+            }
+else
+            {
+Application.Idle -= streaming;
+btnStreamOnOff.Text = @"Start Streaming";
+            }
+            _streaming = !_streaming;
+        }
+
+
+// webcam Streaming Event Handler
+privatevoidstreaming(object sender, System.EventArgs e)
+        {
+varimg = _capture.QueryFrame().ToImage<Bgr, byte>();
+var bmp = img.Bitmap;
+picStream.Image = bmp;
+        }
+
+
+// webcam btnSave_Clickinitialising Webcam Variables
+privatevoidbtnSave_Click(object sender, EventArgs e)
+        {
+varsaveFileDialog = newSaveFileDialog();
+saveFileDialog.Title = @"Save Your Photo";
+if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+picOutput.Image.Save(saveFileDialog.FileName + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+MessageBox.Show(@"Saved!");
+            }
+        }
+
+privatevoid button1_Click(object sender, EventArgs e)
+        {
+picOutput.Image = picStream.Image;
+        }
+
+privatevoidButtonConnection_Click(object sender, EventArgs e)
+        {
+tabControl_registration.SelectedTab = tabPage_connect;
+
+        }
+
+privatevoidButtonScanPort_Click(object sender, EventArgs e)
+        {
+
+ComboBoxPort.Items.Clear();
+string[] myPort;
+inti;
+myPort = System.IO.Ports.SerialPort.GetPortNames();
+ComboBoxPort.Items.AddRange(myPort);
+i = ComboBoxPort.Items.Count;
+i = i - i;
+
+try
+            {
+ComboBoxPort.SelectedIndex = i;
+            }
+catch (Exception ex)
+            {
+//MessageBox.Show("Select Device Port", "Port cannot be empty !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+MessageBox.Show("Com port not detected", "Attention!! error is  " + ex.Message + "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+ComboBoxPort.Text = "";
+ComboBoxPort.Items.Clear(); ;
+return;
+            }
+
+ComboBoxPort.DroppedDown = true;
+
+
+// ComboBoxPort.Items.Clear()
+//Dim myPort As Array
+//Dim i As Integer
+//myPort = IO.Ports.SerialPort.GetPortNames()
+//ComboBoxPort.Items.AddRange(myPort)
+//i = ComboBoxPort.Items.Count
+//i = i - i
+//Try
+//    ComboBoxPort.SelectedIndex = i
+//Catch ex As Exception
+//    MsgBox("Com port not detected", MsgBoxStyle.Critical, "Error Message")
+//    ComboBoxPort.Text = ""
+//    ComboBoxPort.Items.Clear()
+//    Return
+//End Try
+//ComboBoxPort.DroppedDown = True
+        }
+
+privatevoidButtonConnect_Click(object sender, EventArgs e)
+        {
+
+if (this.ComboBoxPort.Text == "")
+            {
+
+MessageBox.Show("Select Device Port", "Port cannot be empty !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ComboBoxPort.Focus();
+return;
+            }
+
+if (ComboBoxBaudRate.Text == "")
+            {
+MessageBox.Show("Select Baud Rate", "Baud Rate cannot be empty !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ComboBoxBaudRate.BackColor = Color.Wheat;
+return;
+            }
+
+
+if (ButtonConnect.Text == "Connect")
+            {
+
+//SerialPort1.BaudRate = (int)ComboBoxBaudRate.SelectedItem;
+                SerialPort1.BaudRate = Convert.ToInt32((String)ComboBoxBaudRate.SelectedItem);
+                SerialPort1.PortName = (string)ComboBoxPort.SelectedItem;
+try
+                {
+                    SerialPort1.Open();
+TimerSerialIn.Start();
+ButtonConnect.Text = "Disconnect";
+PictureBoxStatusConnect.Image = Properties.Resources.Connected;
+
+
+                }
+catch (Exception ex)
+                {
+
+//MessageBox.Show("Select Device Port", "Port cannot be empty !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+MessageBox.Show("Failed to connect !!!" + ex.Message + "Arduino is not detected.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+// MessageBox.Show("Failed to connect !!!" &vbCr& "Arduino is not detected.", MsgBoxStyle.Critical, "Error Message");
+PictureBoxStatusConnect.Image = Properties.Resources.Disconnect;
+                }
+
+
+            }
+elseif (ButtonConnect.Text == "Disconnect")
+            {
+PictureBoxStatusConnect.Image = Properties.Resources.Disconnect;
+ButtonConnect.Text = "Connect";
+LabelConectionStatus.Text = "Connection Status : Disconnect";
+TimerSerialIn.Stop();
+                SerialPort1.Close();
+            }
+
+
+        }
+
+privatevoidButton_resetport_Click(object sender, EventArgs e)
+        {
+
+PictureBoxStatusConnect.Image = Properties.Resources.Disconnect;
+ButtonConnect.Text = "Connect";
+LabelConectionStatus.Text = "Connection Status : Disconnect";
+TimerSerialIn.Stop();
+            SerialPort1.Close();
+
+
+ComboBoxPort.Text = "";
+ComboBoxBaudRate.Text = "";
+        }
+
+privatevoidButtonUserData_Click(object sender, EventArgs e)
+        {
+
+if (TimerSerialIn.Enabled == false)
+            {
+
+MessageBox.Show("Failed to open User Data !!!" + Environment.NewLine + "Click the Connection menu then click the Connect button.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+return;
+            }
+else
+            {
+
+StrSerialIn = "";
+ViewUserData = true;
+tabControl_registration.SelectedTab = tabPage_userdata;
+            }
+
+        }
+
+privatevoidTimerSerialIn_Tick(object sender, EventArgs e)
+        {
+
+try
+            {
+
+StrSerialIn = SerialPort1.ReadExisting();
+
+                textBox1.Text = StrSerialIn;
+LabelConectionStatus.Text = "Connection Status : Connected";
+if (StrSerialIn != "") {
+if (GetID == true) {
+LabelGetID.Text = StrSerialIn;
+textBox_regno.Text= StrSerialIn;
+                        GetID = false;
+if (LabelGetID.Text != "________") {
+PanelReadingTagProcess.Visible = false;
+IDCheck();
+                        }
+                    }
+if (ViewUserData == true) {
+ViewData();
+                    }
+                }
+            } catch (Exception ex) {
+
+TimerSerialIn.Stop();
+                SerialPort1.Close();
+LabelConectionStatus.Text = "Connection Status : Disconnect";
+PictureBoxStatusConnect.Image = Properties.Resources.Disconnect;
+MessageBox.Show("Failed to connect !!!" + Environment.NewLine + "Arduino is not detected.", "Error Message");
+ButtonConnect_Click(sender, e);
+MessageBox.Show("Data error !!!" + Environment.NewLine + ex.Message, "Error Message");
+
+return;
+            }
+
+if (PictureBoxStatusConnect.Visible == true) {
+PictureBoxStatusConnect.Visible = false;
+            } elseif (PictureBoxStatusConnect.Visible == false) {
+PictureBoxStatusConnect.Visible = true;
+            }
+
+////try
+////{
+
+
+////    StrSerialIn = SerialPort1.ReadExisting();
+////    LabelConectionStatus.Text = "Connection Status : Connected";
+////    if (StrSerialIn != "")
+////    {
+////        LabelGetID.Text = StrSerialIn;
+////        GetID = false;
+
+////        if (LabelGetID.Text != "________")
+////        {
+
+////            PanelReadingTagProcess.Visible = false;
+////            IDCheck();
+////        }
+
+////    }
+
+////    if (ViewUserData == true)
+////    {
+
+////        ViewData();
+////    }
+
+////}
+////catch (Exception ex)
+////{
+////    TimerSerialIn.Stop();
+////    SerialPort1.Close();
+////    LabelConectionStatus.Text = "Connection Status : Disconnect";
+////    PictureBoxStatusConnect.Image = Properties.Resources.Disconnect;
+////    MessageBox.Show("Failed to connect !!!" + ex.Message + "Arduino is not detected.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
+////    ButtonConnect_Click(sender, e);
+////    return;
+////}
+
+////if (PictureBoxStatusConnect.Visible == true)
+////{
+
+
+////    PictureBoxStatusConnect.Visible = false;
+////}
+////else
+////{
+////    PictureBoxStatusConnect.Visible = false;
+////    PictureBoxStatusConnect.Visible = true;
+////}
+        }
+
+publicvoidIDCheck()
+        {
+
+try
+            {
+Connection.Open();
+            }
+catch (Exception ex)
+            {
+MessageBox.Show("Connection failed !!!" + ex.Message + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+            }
+
+try
+            {
+
+MySQLCMD.CommandType = CommandType.Text;
+MySQLCMD.CommandText = "SELECT * FROM " + Table_Name + " WHERE ID LIKE '" + LabelGetID.Text + "'";
+MySQLDA = newMySqlDataAdapter(MySQLCMD.CommandText, Connection);
+                DT = newDataTable();
+                Data = MySQLDA.Fill(DT);
+if (Data > 0)
+                {
+
+DialogResultdialogResult = MessageBox.Show("ID registered !" + Environment.NewLine + "Do you want to edit the data ?", "Confirmation", MessageBoxButtons.YesNo);
+if (dialogResult == DialogResult.No)
+                    {
+                        DT = null;
+Connection.Close();
+ButtonScanID.Enabled = true;
+                        GetID = false;
+LabelGetID.Text = "________";
+return;
+                    }
+else
+                    {
+byte[] img = (byte[])DT.Rows[0]["Images"];
+MemoryStreamms = newMemoryStream(img);
+PictureBoxImageInput.Image = Image.FromStream(ms);
+
+//Dim ImgArray() As Byte = DT.Rows(0).Item("Images")
+//Dim lmgStr As New System.IO.MemoryStream(ImgArray)
+//PictureBoxImageInput.Image = Image.FromStream(lmgStr)
+//PictureBoxImageInput.SizeMode = PictureBoxSizeMode.Zoom
+
+
+TextBoxName.Text = DT.Rows[0]["Name"].ToString();
+TextBoxAddress.Text = DT.Rows[0]["Address"].ToString();
+TextBoxCity.Text = DT.Rows[0]["City"].ToString();
+TextBoxCountry.Text = DT.Rows[0]["Country"].ToString();
+StatusInput = "Update";
+
+                    }
+
+                }
+else {
+
+                }
+
+//using (MySqlConnection Connection = new MySqlConnection(Connection)) {
+//    string sql = "SELECT * FROM  rfid_attendance_table  WHERE ID LIKE '" + LabelGetID.Text + "'";
+//    Connection.Open();
+//    MySqlCommanddbcommand = new MySqlCommand(sql, Connection);
+//    MySqlDataAdapter da = new MySqlDataAdapter(dbcommand);
+//    DataTable dt = new DataTable();
+//    Data=da.Fill(dt);
+
+//    if (Data>0) {
+
+//        DialogResultdialogResult = MessageBox.Show("ID registered !" + Environment.NewLine + "Do you want to edit the data ?", "Confirmation", MessageBoxButtons.YesNo);
+//        if (dialogResult == DialogResult.Yes)
+//        {
+//            dt = null;
+//            Connection.Close();
+//            ButtonScanID.Enabled = true;
+//            GetID = false;
+//            LabelGetID.Text = "________";
+//            return;
+//        }
+//        else if (dialogResult == DialogResult.No)
+//        {
+
+
+//            byte[] img = (byte[])dt.Rows[0]["Images"];
+//            MemoryStreamms = new MemoryStream(img);
+//            PictureBoxImageInput.Image = Image.FromStream(ms);
+
+//            TextBoxName.Text = dt.Rows[0][0].ToString();
+//            TextBoxAddress.Text = dt.Rows[0]["Address"].ToString();
+//            TextBoxCity.Text = dt.Rows[0]["City"].ToString();
+//            TextBoxCountry.Text = dt.Rows[0]["Country"].ToString();
+//            StatusInput = "Update";
+//            da.Dispose();
+
+//            // byte[] imageBytes = (byte[])dr["headshot"];
+
+//            //Dim ImgArray() As Byte = DT.Rows(0).Item("Images")
+//            // Dim lmgStr As New System.IO.MemoryStream(ImgArray)
+//            // PictureBoxImageInput.Image = Image.FromStream(lmgStr)
+//            // PictureBoxImageInput.SizeMode = PictureBoxSizeMode.Zoom
+
+//             //TextBoxName.Text = dt.Rows[0].ItemArray("Name")
+//             //TextBoxAddress.Text = DT.Rows(0).Item("Address")
+//             //TextBoxCity.Text = DT.Rows(0).Item("City")
+//             //TextBoxCountry.Text = DT.Rows(0).Item("Country")
+//             //StatusInput = "Update"
+//        }
+
+//        dt = null;
+//        Connection.Close();
+
+//        ButtonScanID.Enabled = true;
+//        GetID = false;
+
+//    }
+//}
+
+            }
+catch (Exception ex)
+            {
+
+MessageBox.Show("Failed to load Database !!!" + Environment.NewLine + ex.Message, "Error Message");
+Connection.Close();
+return;
+            }
+
+            DT = null;
+Connection.Close();
+
+ButtonScanID.Enabled = true;
+            GetID = false;
+
+        }
+
+
+privatevoidViewData()
+        {
+
+
+// LabelID.Text = "ID : " + StrSerialIn;
+LabelID.Text=  StrSerialIn;
+if (LabelID.Text == "ID : ________") {
+
+ViewData();
+            }
+else {
+ShowDataUser();
+            }
+
+        }
+
+privatevoidShowDataUser() {
+
+try
+            {
+Connection.Open();
+            }
+catch (Exception ex)
+            {
+MessageBox.Show("Connection failed !!! error is " + ex.Message + " " + Environment.NewLine + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+            }
+
+try {
+
+
+MySQLCMD.CommandType = CommandType.Text;
+//MySQLCMD.CommandText = "SELECT * FROM " + Table_Name + " WHERE ID LIKE '" + LabelID.Text.Substring(5, LabelID.Text.Length - 5) + "'";
+MySQLCMD.CommandText = "SELECT * FROM " + Table_Name + " WHERE ID LIKE '" + LabelID.Text + "'";
+
+MySQLDA = newMySqlDataAdapter(MySQLCMD.CommandText, Connection);
+                DT = newDataTable();
+                Data = MySQLDA.Fill(DT);
+
+if (Data > 0)
+                {
+
+byte[] img = (byte[])DT.Rows[0]["Images"];
+MemoryStreamms = newMemoryStream(img);
+PictureBoxUserImage.Image = Image.FromStream(ms);
+pictureBox_imgfaceD.Image = Image.FromStream(ms);
+
+ms.Close();
+
+//LabelID.Text = "ID : " + DT.Rows[0]["ID"];
+LabelID.Text=  DT.Rows[0]["ID"].ToString();
+LabelName.Text = DT.Rows[0]["Name"].ToString();
+LabelAddress.Text = DT.Rows[0]["Address"].ToString();
+LabelCity.Text = DT.Rows[0]["City"].ToString();
+LabelCountry.Text = DT.Rows[0]["Country"].ToString();
+
+label_idnoface.Text = "ID No: " + DT.Rows[0]["ID"].ToString();
+label_name.Text = "Name: Welcome! " + DT.Rows[0]["Name"].ToString();
+label_class.Text= "Class: " + DT.Rows[0]["studentclass"].ToString();
+label_cat.Text = "Category: " + DT.Rows[0]["studentcat"].ToString();
+
+
+                    tabControl1.SelectedTab = tabPage_face;
+btnCapture.PerformClick();
+
+timer_blinkimg.Start();
+//System.Threading.Thread.Sleep(5 * 60 * 1000);
+btnDetectFaces.PerformClick();
+
+                }
+else {
+MessageBox.Show("ID not found !!!" + Environment.NewLine + "Please register your ID.", "Information Message");
+
+                }
+
+            }
+catch (Exception ex)
+            {
+MessageBox.Show("Failed to load Database !!! " + Environment.NewLine + ex.Message + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+Connection.Close();
+return;
+            }
+
+            DT = null;
+Connection.Close();
+
+        }
+
+privatevoidButtonClear_Click(object sender, EventArgs e)
+        {
+LabelID.Text = "ID : ________";
+LabelName.Text = "Waiting...";
+LabelAddress.Text = "Waiting..";
+LabelCity.Text = "Waiting...";
+LabelCountry.Text = "Waiting...";
+PictureBoxUserImage.Image = null;
+        }
+
+privatevoidButtonRegistration_Click(object sender, EventArgs e)
+        {
+
+StrSerialIn = "";
+ViewUserData = false;
+tabControl_registration.SelectedTab = tabPage_register;
+
+ShowData();
+        }
+
+privatevoidShowData() {
+try
+            {
+
+Connection.Open();
+
+
+            }
+catch (Exceptionem)
+            {
+
+//throw new Exception(em.Message);
+//RadMessageBox.Show(em.Message);
+MessageBox.Show("Connection failed !!!" + Environment.NewLine + em.Message + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+            }
+
+if (LoadImagesStr == false) {
+MySQLCMD.CommandType = CommandType.Text;
+MySQLCMD.CommandText = "SELECT Name, ID, Address, City, Country FROM " + Table_Name + " ORDER BY Name";
+MySQLDA = newMySqlDataAdapter(MySQLCMD.CommandText, Connection);
+                DT = newDataTable();
+                Data = MySQLDA.Fill(DT);
+
+if (Data > 0) {
+                    DataGridView1.DataSource = "";
+                    DataGridView1.DataSource = DT;
+//DataGridView1.columns(2).DefaultCellStyle.Format = "c";
+//dataGridView1.Columns["Last Prepared"].DefaultCellStyle.Format = "y";
+
+DataGridView1.Columns[2].DefaultCellStyle.Format = "c";
+DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                    DataGridView1.ClearSelection();
+                } else {
+                    DataGridView1.DataSource = ""; ;
+                }
+            }
+else {
+
+MySQLCMD.CommandType = CommandType.Text;
+MySQLCMD.CommandText = " SELECT Images FROM " + Table_Name + " WHERE ID LIKE '" + IDRam + "'";
+MySQLDA = newMySqlDataAdapter(MySQLCMD.CommandText, Connection);
+                DT = newDataTable();
+                Data = MySQLDA.Fill(DT);
+if (Data > 0) {
+
+byte[] img = (byte[])DT.Rows[0]["Images"];
+MemoryStreamms = newMemoryStream(img);
+PictureBoxImagePreview.Image = Image.FromStream(ms);
+ms.Close();
+
+//Dim ImgArray() As Byte = DT.Rows(0).Item("Images")
+//Dim lmgStr As New System.IO.MemoryStream(ImgArray)
+//PictureBoxImagePreview.Image = Image.FromStream(lmgStr)
+//PictureBoxImagePreview.SizeMode = PictureBoxSizeMode.Zoom
+//lmgStr.Close()
+                }
+LoadImagesStr = false;
+
+            }
+
+            DT = null;
+Connection.Close();
+        }
+
+privatevoidTimerTimeDate_Tick(object sender, EventArgs e)
+        {
+LabelDateTime.Text = "Time " + DateTime.Now.ToString("HH:mm:ss") + "  Date " + DateTime.Now.ToString("dd MMM, yyyy");
+        }
+
+privatevoidPictureBoxImageInput_Click(object sender, EventArgs e)
+        {
+
+//OpenFileDialogopn = new OpenFileDialog();
+//opn.Filter = "Choose Image(*.jpg; *.png; *.jpeg)|*.jpg; *.png; *.jpeg";
+//if (opn.ShowDialog() == DialogResult.OK)
+//{
+//    pbImage.Image = Image.FromFile(opn.FileName);
+//}
+
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "JPEG (*.jpeg;*.jpg)|*.jpeg;*.jpg";
+
+if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+IMG_FileNameInput = openFileDialog1.FileName;
+PictureBoxImageInput.ImageLocation = IMG_FileNameInput;
+            }
+        }
+
+privatevoidButtonScanID_Click(object sender, EventArgs e)
+        {
+if (TimerSerialIn.Enabled == true)
+            {
+PanelReadingTagProcess.Visible = true;
+
+                GetID = true;
+ButtonScanID.Enabled = false;
+            }
+else
+            {
+MessageBox.Show("Failed to open User Data !!!" + Environment.NewLine + "Click the Connection menu then click the Connect button.", "Error Message");
+            }
+        }
+
+privatevoidButtonClearForm_Click(object sender, EventArgs e)
+        {
+ClearInputUpdateData();
+            GetID = false;
+ButtonScanID.Enabled = true;
+        }
+
+privatevoidClearInputUpdateData() {
+TextBoxName.Text = "";
+LabelGetID.Text = "________";
+TextBoxAddress.Text = "";
+TextBoxCity.Text = "";
+TextBoxCountry.Text = "";
+PictureBoxImageInput.Image = Properties.Resources.Click_to_browse;
+PanelReadingTagProcess.Visible = false;
+
+comboBox_class.Text = "";
+
+textBox_regno.Text = "";
+comboBox_gender.Text = "";
+            dateTimePicker1.Text = "";
+textBox_sponsor.Text = "";
+textBox_phone.Text = "";
+textBox_email.Text = "";
+
+ComboBox_StateofOrigin.Text = "";
+ComboBox_LGA.Text = "";
+
+comboBox_cat.Text = "";
+
+
+        }
+
+privatevoidButtonSave_Click(object sender, EventArgs e)
+        {
+
+//byte[] img = (byte[])DT.Rows[0]["Images"];
+//MemoryStreamms = new MemoryStream(img);
+//Dim mstream As New System.IO.MemoryStream()
+//Dim arrImage() As Byte
+
+MemoryStreammstream = newMemoryStream();
+Byte[] arrImage;
+
+if (TextBoxName.Text == "") {
+MessageBox.Show("Name cannot be empty !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+TextBoxName.BackColor = Color.Wheat;
+TextBoxName.Focus();
+return;
+            }
+
+if (comboBox_cat.Text == "")
+            {
+MessageBox.Show("please select student category!!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+comboBox_cat.BackColor = Color.Wheat;
+comboBox_cat.Focus();
+return;
+            }
+
+if (comboBox_class.Text == "")
+            {
+MessageBox.Show("please select class!!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+comboBox_class.BackColor = Color.Wheat;
+comboBox_class.Focus();
+return;
+            }
+
+if (comboBox_gender.Text == "")
+            {
+MessageBox.Show("please select gender!!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+comboBox_gender.BackColor = Color.Wheat;
+comboBox_gender.Focus();
+return;
+            }
+
+
+if (textBox_email.Text == "")
+            {
+MessageBox.Show("please enter email address", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+textBox_email.BackColor = Color.Wheat;
+textBox_email.Focus();
+return;
+            }
+
+
+if (textBox_phone.Text == "")
+            {
+MessageBox.Show("please enter phone number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+textBox_phone.BackColor = Color.Wheat;
+textBox_phone.Focus();
+return;
+            }
+
+
+if (TextBoxAddress.Text == "") {
+MessageBox.Show("Address cannot be empty !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+TextBoxAddress.BackColor = Color.Wheat;
+TextBoxAddress.Focus();
+return;
+            }
+
+if (TextBoxCity.Text == "") {
+MessageBox.Show("City cannot be empty !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+TextBoxCity.BackColor = Color.Wheat;
+TextBoxCity.Focus();
+return;
+            }
+
+
+if (ComboBox_StateofOrigin.Text == "")
+            {
+MessageBox.Show("please select state of origin", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ComboBox_StateofOrigin.BackColor = Color.Wheat;
+ComboBox_StateofOrigin.Focus();
+return;
+            }
+
+
+if (ComboBox_StateofOrigin.Text == "")
+            {
+MessageBox.Show("please select state of origin", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ComboBox_StateofOrigin.BackColor = Color.Wheat;
+ComboBox_StateofOrigin.Focus();
+return;
+            }
+
+if (TextBoxCountry.Text == "")
+            {
+MessageBox.Show("Country cannot be empty !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+            }
+
+
+if (textBox_regno.Text == "")
+            {
+MessageBox.Show("please scan student RFID Tag to continue", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//comboBox_class.BackColor = Color.Wheat;
+//comboBox_class.Focus();
+return;
+            }
+
+
+
+if (StatusInput == "Save") {
+if (IMG_FileNameInput != "") {
+PictureBoxImageInput.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg);
+arrImage = mstream.GetBuffer();
+                }
+else {
+MessageBox.Show("The image has not been selected !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+                }
+
+try {
+Connection.Open();
+                } catch (Exceptionem) {
+MessageBox.Show("Connection failed !!! error is " + em.Message + "" + Environment.NewLine + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+                }
+
+try {
+
+MySQLCMD = newMySqlCommand();
+var q = MySQLCMD;
+q.CommandText = "INSERT INTO " + Table_Name + "(Name,ID, Address, City, Country, Images,getDate,studentclass, gender,email,phoneno,stateoforigin,lga,dob,sponsor,regno,studentcat) VALUES (@name, @id, @address, @city, @country, @images,@getDate,@studentclass, @gender,@email,@phoneno,@stateoforigin,@lga,@dob,@sponsor,@regno,@studentcat)";
+q.Connection = Connection;
+q.Parameters.AddWithValue("@name", TextBoxName.Text);
+q.Parameters.AddWithValue("@id", LabelGetID.Text);
+q.Parameters.AddWithValue("@address", TextBoxAddress.Text);
+q.Parameters.AddWithValue("@city", TextBoxCity.Text);
+q.Parameters.AddWithValue("@country", TextBoxCountry.Text);
+q.Parameters.AddWithValue("@images", arrImage);
+q.Parameters.AddWithValue("@getDate", LabelDateTime.Text);
+
+q.Parameters.AddWithValue("@studentclass", comboBox_class.Text);
+q.Parameters.AddWithValue("@gender", comboBox_gender.Text);
+q.Parameters.AddWithValue("@email", textBox_email.Text);
+q.Parameters.AddWithValue("@phoneno", textBox_phone.Text);
+q.Parameters.AddWithValue("@stateoforigin", ComboBox_StateofOrigin.Text);
+
+q.Parameters.AddWithValue("@lga", ComboBox_LGA.Text);
+q.Parameters.AddWithValue("@dob", dateTimePicker1.Text);
+
+q.Parameters.AddWithValue("@sponsor", textBox_sponsor.Text);
+q.Parameters.AddWithValue("@regno", textBox_regno.Text);
+
+q.Parameters.AddWithValue("@studentcat", comboBox_cat.Text);
+
+
+
+
+q.ExecuteNonQuery();
+
+
+//    MySqlCommandMySQLCMD = new MySqlCommand();
+//    With MySQLCMD
+//    .CommandText = "INSERT INTO " &Table_Name& " (Name,ID, Address, City, Country, Images,getDate) VALUES (@name, @id, @address, @city, @country, @images,@getDate)"
+//    .Connection = Connection
+//    .Parameters.AddWithValue("@name", TextBoxName.Text)
+//    .Parameters.AddWithValue("@id", LabelGetID.Text)
+//    .Parameters.AddWithValue("@address", TextBoxAddress.Text)
+//    .Parameters.AddWithValue("@city", TextBoxCity.Text)
+//    .Parameters.AddWithValue("@country", TextBoxCountry.Text)
+//    .Parameters.AddWithValue("@images", arrImage)
+//    .Parameters.AddWithValue("@getDate", LabelDateTime.Text)
+//    .ExecuteNonQuery();
+//End With;
+//MessageBox.Show("Data saved successfully", MsgBoxStyle.Information, "Information");
+MessageBox.Show("Data saved successfully", "Attention!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+IMG_FileNameInput = "";
+ClearInputUpdateData();
+                } catch (Exception ex) {
+MessageBox.Show("Data failed to save !!!" + Environment.NewLine + ex.Message, "Error Message");
+Connection.Close();
+return;
+                }
+Connection.Close();
+
+            }
+else {
+
+if (IMG_FileNameInput != "") {
+PictureBoxImageInput.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg);
+arrImage = mstream.GetBuffer();
+
+try {
+Connection.Open();
+                    } catch (Exceptionem) {
+MessageBox.Show("Connection failed !!!" + Environment.NewLine + em.Message + " Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+                    }
+
+try {
+MySQLCMD = newMySqlCommand();
+var q = MySQLCMD;
+q.CommandText = "UPDATE " + Table_Name + " SET  Name=@name,ID=@id,Address=@address,City=@city,Country=@country,Images=@images WHERE ID=@id ";
+q.Connection = Connection;
+q.Parameters.AddWithValue("@name", TextBoxName.Text);
+q.Parameters.AddWithValue("@id", LabelGetID.Text);
+q.Parameters.AddWithValue("@address", TextBoxAddress.Text);
+q.Parameters.AddWithValue("@city", TextBoxCity.Text);
+q.Parameters.AddWithValue("@country", TextBoxCountry.Text);
+q.Parameters.AddWithValue("@images", arrImage);
+q.ExecuteNonQuery();
+
+// MsgBox("Data updated successfully", MsgBoxStyle.Information, "Information");
+MessageBox.Show("Data updated successfully", "Attention!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+IMG_FileNameInput = "";
+ButtonSave.Text = "Save";
+ClearInputUpdateData();
+                    } catch (Exception ex) {
+MessageBox.Show("Data failed to Update !!! error ois:  " + ex.Message + "  ", "Attention!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+//MsgBox("Data failed to Update !!!" &vbCr&ex.Message, MsgBoxStyle.Critical, "Error Message")
+Connection.Close();
+return;
+                    }
+Connection.Close();
+
+                } else {
+
+try {
+Connection.Open();
+                    } catch (Exceptionem) {
+MessageBox.Show("Connection failed !!! " + em.Message + " " + Environment.NewLine + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+                    }
+
+try {
+MySQLCMD = newMySqlCommand();
+var q = MySQLCMD;
+q.CommandText = "UPDATE " + Table_Name + " SET  Name=@name,ID=@id,Address=@address,City=@city,Country=@country WHERE ID=@id ";
+q.Connection = Connection;
+q.Parameters.AddWithValue("@name", TextBoxName.Text);
+q.Parameters.AddWithValue("@id", LabelGetID.Text);
+q.Parameters.AddWithValue("@address", TextBoxAddress.Text);
+q.Parameters.AddWithValue("@city", TextBoxCity.Text);
+q.Parameters.AddWithValue("@country", TextBoxCountry.Text);
+q.ExecuteNonQuery();
+MessageBox.Show("Data updated successfully", "Attention!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+//MsgBox("Data updated successfully", MsgBoxStyle.Information, "Information")
+ButtonSave.Text = "Save";
+ClearInputUpdateData();
+                    } catch (Exception ex) {
+MessageBox.Show("Data failed to Update !!!" + Environment.NewLine + ex.Message, "Error Message");
+Connection.Close();
+return;
+                    }
+Connection.Close();
+                }
+StatusInput = "Save";
+            }
+PictureBoxImagePreview.Image = null;
+ShowData();
+        }
+
+privatevoidButtonCloseReadingTag_Click(object sender, EventArgs e)
+        {
+PanelReadingTagProcess.Visible = false;
+ButtonScanID.Enabled = true;
+        }
+
+privatevoidCheckBoxByName_CheckedChanged(object sender, EventArgs e)
+        {
+if (CheckBoxByName.Checked == true) {
+CheckBoxByID.Checked = false;
+            }
+if (CheckBoxByName.Checked == false) {
+CheckBoxByID.Checked = true;
+            }
+        }
+
+privatevoidCheckBoxByID_CheckedChanged(object sender, EventArgs e)
+        {
+if (CheckBoxByID.Checked == true) {
+CheckBoxByName.Checked = false;
+            }
+if (CheckBoxByID.Checked == false)
+CheckBoxByName.Checked = true;
+        }
+
+privatevoidComboBoxBaudRate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+ComboBoxBaudRate.BackColor = Color.White;
+        }
+
+privatevoidTextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+if (CheckBoxByID.Checked == true) {
+if (TextBoxSearch.Text == "") {
+SqlCmdSearchstr = "SELECT Name, ID, Address, City, Country FROM " + Table_Name + " ORDER BY Name";
+                }
+else {
+SqlCmdSearchstr = "SELECT Name, ID, Address, City, Country FROM " + Table_Name + " WHERE ID LIKE'" + TextBoxSearch.Text + "%'";
+                }
+            }
+
+if (CheckBoxByName.Checked == true) {
+if (TextBoxSearch.Text == "") {
+SqlCmdSearchstr = "SELECT Name, ID, Address, City, Country FROM " + Table_Name + " ORDER BY Name";
+                }
+else {
+SqlCmdSearchstr = "SELECT Name, ID, Address, City, Country FROM " + Table_Name + " WHERE Name LIKE'" + TextBoxSearch.Text + "%'";
+                }
+            }
+
+try {
+Connection.Open();
+            } catch (Exception ex) {
+//MessageBox.Show("Connection failed !!!" + Environment.NewLine + "Please check that the server is ready !!!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+MessageBox.Show("Connection failed !!!" + Environment.NewLine + ex.Message, "Error Message");
+
+return;
+            }
+
+try {
+MySQLDA = newMySqlDataAdapter(SqlCmdSearchstr, Connection);
+                DT = newDataTable();
+                Data = MySQLDA.Fill(DT);
+if (Data > 0) {
+                    DataGridView1.DataSource = "";
+                    DataGridView1.DataSource = DT;
+DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                    DataGridView1.ClearSelection();
+                }
+                DataGridView1.DataSource = DT;
+
+            } catch (Exception ex) {
+MessageBox.Show("Failed to search" + Environment.NewLine + ex.Message, "Error Message");
+Connection.Close();
+            }
+Connection.Close();
+        }
+
+privatevoidButtonScanID_MouseLeave(object sender, EventArgs e)
+        {
+ButtonScanID.ForeColor = Color.FromArgb(6, 71, 165);
+        }
+
+privatevoidButtonScanID_MouseHover(object sender, EventArgs e)
+        {
+ButtonScanID.ForeColor = Color.White;
+        }
+
+privatevoidButtonClearForm_MouseLeave(object sender, EventArgs e)
+        {
+ButtonClearForm.ForeColor = Color.FromArgb(6, 71, 165);
+        }
+
+privatevoidButtonClearForm_MouseHover(object sender, EventArgs e)
+        {
+ButtonClearForm.ForeColor = Color.White;
+        }
+
+privatevoidButtonSave_MouseLeave(object sender, EventArgs e)
+        {
+ButtonSave.ForeColor = Color.FromArgb(6, 71, 165);
+        }
+
+privatevoidButtonSave_MouseHover(object sender, EventArgs e)
+        {
+ButtonSave.ForeColor = Color.White;
+        }
+
+privatevoid DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+privatevoid DataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+//try {
+//    if (DataGridView1.AllCellsSelected(false)){
+//        if (e.Button == MouseButtons.Left) {
+//            DataGridView1.CurrentCell = DataGridView1[e.ColumnIndex, e.RowIndex];
+//            int i;
+//            //With DataGridView1;
+//            var dgv = DataGridView1;
+//            if (e.RowIndex>= 0) {
+//                i = dgv.CurrentRow.Index;
+//                LoadImagesStr = true;
+//                IDRam = dgv.Rows[i].Cells["ID"].Value.ToString();
+//                ShowData();
+//            }
+//            //End With
+//        }
+
+//    }
+//} catch (Exception ex) {
+//    return;
+//}
+        }
+
+privatevoid DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+if (DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+DataGridView1.CurrentRow.Selected = true;
+
+LabelGetID.Text = DataGridView1.CurrentRow.Cells["ID"].Value.ToString();
+TextBoxName.Text = DataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+LoadImagesStr = true;
+IDRam = LabelGetID.Text;
+ShowData();
+
+            }
+else {
+MessageBox.Show("Row empty", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return;
+            }
+
+        }
+
+privatevoidLabelGetID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+privatevoid DataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+using (SolidBrush b = newSolidBrush(DataGridView1.RowHeadersDefaultCellStyle.ForeColor))
+            {
+e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
+            }
+        }
+
+privatevoid label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+privatevoid textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+privatevoidgetlga() {
+ComboBox_LGA.Text = "";
+ComboBox_LGA.Items.Clear();
+
+if (ComboBox_StateofOrigin.Text == "ABIA") {
+ComboBox_LGA.Text = "";
+ComboBox_LGA.Items.Add("Aba North");
+ComboBox_LGA.Items.Add("Aba South");
+ComboBox_LGA.Items.Add("Arochukwu");
+ComboBox_LGA.Items.Add("Bende");
+ComboBox_LGA.Items.Add("Ikwuano");
+ComboBox_LGA.Items.Add("Isiala-Ngwa North");
+ComboBox_LGA.Items.Add("Isiala-Ngwa South");
+ComboBox_LGA.Items.Add("Isuikwato");
+ComboBox_LGA.Items.Add("Obingwa");
+ComboBox_LGA.Items.Add("Ohafia");
+ComboBox_LGA.Items.Add("Osisioma Ngwa");
+ComboBox_LGA.Items.Add("Ugwunagbo");
+ComboBox_LGA.Items.Add("Ukwa East");
+ComboBox_LGA.Items.Add("Ukwa West");
+ComboBox_LGA.Items.Add("Umuahia North");
+ComboBox_LGA.Items.Add("Umuahia South");
+ComboBox_LGA.Items.Add("Umu-Nneochi");
+
+            } elseif (ComboBox_StateofOrigin.Text == "ADAMAWA") {
+ComboBox_LGA.Text = "";
+ComboBox_LGA.Items.Add("Demsa");
+ComboBox_LGA.Items.Add("Fufore");
+ComboBox_LGA.Items.Add("Ganaye");
+ComboBox_LGA.Items.Add("Gireri");
+ComboBox_LGA.Items.Add("Gombi");
+ComboBox_LGA.Items.Add("Guyuk");
+ComboBox_LGA.Items.Add("Hong");
+ComboBox_LGA.Items.Add("Jada");
+ComboBox_LGA.Items.Add("Lamurde");
+ComboBox_LGA.Items.Add("Madagali");
+ComboBox_LGA.Items.Add("Maiha ");
+ComboBox_LGA.Items.Add("Mayo-Belwa");
+ComboBox_LGA.Items.Add("Michika");
+ComboBox_LGA.Items.Add("Mubi North");
+ComboBox_LGA.Items.Add("Mubi South");
+ComboBox_LGA.Items.Add("Numan");
+ComboBox_LGA.Items.Add("Shelleng");
+ComboBox_LGA.Items.Add("Song");
+ComboBox_LGA.Items.Add("Toungo");
+ComboBox_LGA.Items.Add("Yola North");
+ComboBox_LGA.Items.Add("Yola South");
+
+            } elseif (ComboBox_StateofOrigin.Text == "AKWA IBOM") {
+ComboBox_LGA.Text = "";
+ComboBox_LGA.Items.Add("Abak ");
+ComboBox_LGA.Items.Add("Eastern Obolo ");
+ComboBox_LGA.Items.Add("Eket ");
+ComboBox_LGA.Items.Add("EsitEket ");
+ComboBox_LGA.Items.Add("Essien Udim ");
+ComboBox_LGA.Items.Add("Etim Ekpo ");
+ComboBox_LGA.Items.Add("Etinan ");
+ComboBox_LGA.Items.Add("Ibeno ");
+ComboBox_LGA.Items.Add("IbesikpoAsutan ");
+ComboBox_LGA.Items.Add("Ibiono Ibom ");
+ComboBox_LGA.Items.Add("Ika ");
+ComboBox_LGA.Items.Add("Ikono ");
+ComboBox_LGA.Items.Add("Ikot Abasi");
+ComboBox_LGA.Items.Add("Ikot Ekpene ");
+ComboBox_LGA.Items.Add("Ini");
+ComboBox_LGA.Items.Add("Itu");
+ComboBox_LGA.Items.Add("Mbo");
+ComboBox_LGA.Items.Add("MkpatEnin");
+ComboBox_LGA.Items.Add("Nsit Atai");
+ComboBox_LGA.Items.Add("Nsit Ibom");
+ComboBox_LGA.Items.Add("NsitUbium");
+ComboBox_LGA.Items.Add("Obot Akara");
+ComboBox_LGA.Items.Add("Okobo");
+ComboBox_LGA.Items.Add("Onna");
+ComboBox_LGA.Items.Add("Oron");
+ComboBox_LGA.Items.Add("Oruk Anam");
+ComboBox_LGA.Items.Add("Udung Uko");
+ComboBox_LGA.Items.Add("Ukanafun");
+ComboBox_LGA.Items.Add("Uruan");
+ComboBox_LGA.Items.Add("Urue-Offong/Oruko");
+
+ComboBox_LGA.Items.Add("Uyo");
+
+            } elseif (ComboBox_StateofOrigin.Text == "ANAMBRA") {
+
+ComboBox_LGA.Text = "";
+ComboBox_LGA.Items.Add("Aguata");
+ComboBox_LGA.Items.Add("Anambra East");
+ComboBox_LGA.Items.Add("Anambra West ");
+ComboBox_LGA.Items.Add("Anaocha ");
+ComboBox_LGA.Items.Add("Awka North");
+ComboBox_LGA.Items.Add("Awka South");
+ComboBox_LGA.Items.Add("Ayamelum");
+ComboBox_LGA.Items.Add("Dunukofia ");
+ComboBox_LGA.Items.Add("Ekwusigo");
+ComboBox_LGA.Items.Add("Idemili North ");
+ComboBox_LGA.Items.Add("Idemili south ");
+ComboBox_LGA.Items.Add("Ihiala");
+ComboBox_LGA.Items.Add("Njikoka ");
+ComboBox_LGA.Items.Add("Nnewi North ");
+ComboBox_LGA.Items.Add("Nnewi South");
+ComboBox_LGA.Items.Add("Ogbaru");
+ComboBox_LGA.Items.Add("Onitsha North");
+ComboBox_LGA.Items.Add("Onitsha South");
+ComboBox_LGA.Items.Add("Orumba North");
+ComboBox_LGA.Items.Add("Orumba South");
+ComboBox_LGA.Items.Add("Oyi");
+            } elseif (ComboBox_StateofOrigin.Text == "BAUCHI") {
+ComboBox_LGA.Text = "";
+ComboBox_LGA.Items.Add("Alkaleri");
+ComboBox_LGA.Items.Add("Bauchi");
+ComboBox_LGA.Items.Add("Bogoro");
+ComboBox_LGA.Items.Add("Damban");
+ComboBox_LGA.Items.Add("Darazo");
+ComboBox_LGA.Items.Add("Dass");
+ComboBox_LGA.Items.Add("Ganjuwa");
+ComboBox_LGA.Items.Add("Giade");
+ComboBox_LGA.Items.Add("Itas/Gadau");
+ComboBox_LGA.Items.Add("Jama'are");
+ComboBox_LGA.Items.Add("Katagum");
+ComboBox_LGA.Items.Add("Kirfi");
+ComboBox_LGA.Items.Add("Misau");
+ComboBox_LGA.Items.Add("Ningi");
+ComboBox_LGA.Items.Add("Shira");
+ComboBox_LGA.Items.Add("Tafawa-Balewa");
+ComboBox_LGA.Items.Add("Toro ");
+ComboBox_LGA.Items.Add("Warji");
+ComboBox_LGA.Items.Add("Zaki");
+            }
+
+        }
+
+privatevoid ComboBox_StateofOrigin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+getlga();
+        }
+
+privatevoid panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+privatevoidcomboBox_class_SelectedIndexChanged(object sender, EventArgs e)
+        {
+comboBox_class.BackColor = Color.White;
+        }
+
+privatevoidTextBoxName_TextChanged(object sender, EventArgs e)
+        {
+TextBoxName.BackColor = Color.White;
+        }
+
+privatevoidcomboBox_gender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+comboBox_gender.BackColor = Color.White;
+        }
+
+privatevoid comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+if (comboBox_cat.SelectedItem.ToString() =="JSS 1") {
+
+comboBox_class.Items.Clear();
+
+comboBox_class.Items.Add("Class A");
+comboBox_class.Items.Add("Class B");
+comboBox_class.Items.Add("Class C");
+comboBox_class.Items.Add("Class D");
+comboBox_class.Items.Add("Class E");
+
+            }
+elseif (comboBox_cat.SelectedItem.ToString() == "JSS 2")
+                {
+comboBox_class.Items.Clear();
+
+comboBox_class.Items.Add("Class A");
+comboBox_class.Items.Add("Class B");
+comboBox_class.Items.Add("Class C");
+comboBox_class.Items.Add("Class D");
+comboBox_class.Items.Add("Class E");
+            }
+
+elseif (comboBox_cat.SelectedItem.ToString() == "JSS 3")
+            {
+comboBox_class.Items.Clear();
+
+comboBox_class.Items.Add("Class A");
+comboBox_class.Items.Add("Class B");
+comboBox_class.Items.Add("Class C");
+comboBox_class.Items.Add("Class D");
+comboBox_class.Items.Add("Class E");
+            }
+
+elseif (comboBox_cat.SelectedItem.ToString() == "SS 1")
+            {
+comboBox_class.Items.Clear();
+
+comboBox_class.Items.Add("Class A");
+comboBox_class.Items.Add("Class B");
+comboBox_class.Items.Add("Class C");
+comboBox_class.Items.Add("Class D");
+comboBox_class.Items.Add("Class E");
+            }
+
+elseif (comboBox_cat.SelectedItem.ToString() == "SS 2")
+            {
+comboBox_class.Items.Clear();
+
+comboBox_class.Items.Add("Class A");
+comboBox_class.Items.Add("Class B");
+comboBox_class.Items.Add("Class C");
+comboBox_class.Items.Add("Class D");
+comboBox_class.Items.Add("Class E");
+            }
+
+elseif (comboBox_cat.SelectedItem.ToString() == "SS 3")
+            {
+comboBox_class.Items.Clear();
+
+comboBox_class.Items.Add("Class A");
+comboBox_class.Items.Add("Class B");
+comboBox_class.Items.Add("Class C");
+comboBox_class.Items.Add("Class D");
+comboBox_class.Items.Add("Class E");
+            }
+
+        }
+
+privatevoidtabPage_userdata_Click(object sender, EventArgs e)
+        {
+
+        }
+
+privatevoidtoolStripButton_logout_Click(object sender, EventArgs e)
+        {
+
+try
+            {
+DialogResultdialogResult = MessageBox.Show("Are you sure you want to logout?", "Attention!!", MessageBoxButtons.YesNo);
+if (dialogResult == DialogResult.Yes)
+                {
+this.Hide();
+loginloginform = newlogin();
+loginform.ShowDialog();
+                }
+elseif (dialogResult == DialogResult.No)
+                {
+//do something else
+                }
+            }
+catch (Exception ex)
+            {
+
+MessageBox.Show("Attention! " + ex.Message + "Please try again ");
+            }
+
+
+        }
+
+privatevoidbutton_ok_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage_rfid;
+        }
+
+privatevoidtimer_blinkimg_Tick(object sender, EventArgs e)
+        {
+if (pictureBox_blinking.Visible == true)
+pictureBox_blinking.Visible = false;
+else
+pictureBox_blinking.Visible = true;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+Appendix B: Sample Output
+Circuit Diagram
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home Page
+
+Login Page
+
+
+Device Connection Page
+
+Enrolment Page (Biodata)
+
+Facial Extraction
+
+
+Students check-in page
+
+Facial detection
+
+SMS Notification
+
+
+
+Attendance Report
+
+105
+
+
+
+
+
